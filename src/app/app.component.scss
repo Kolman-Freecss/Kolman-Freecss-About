@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.mother-wrapper {
+  background-color: gray;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.parent-wrapper {
+  //align-items: center;
+  //justify-content: center;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.parent-wrapper > * {
+  padding: 40px 40px 40px 80px;
+  flex-grow: 1;
+}
+
+.wrapper-footer {
+  flex-grow: 1;
+}

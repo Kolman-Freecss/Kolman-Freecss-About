@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeModule } from './features/home/home.module';
+import { HomeModule } from './features/home';
 import { NavComponent } from './shared/components/layout/nav/nav.component';
 import { FooterComponent } from './shared/components/layout/footer/footer.component';
 
@@ -16,9 +16,10 @@ import { FooterComponent } from './shared/components/layout/footer/footer.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
