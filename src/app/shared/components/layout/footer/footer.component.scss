@@ -1,6 +1,7 @@
 .container-wrapper {
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
   > * {
     display: flex;
     justify-content: center;
@@ -11,7 +12,7 @@
 }
 
 .fa-brands {
-  color: black;
+  color: white;
   > &:hover {
     color: red;
     > i.fa-github {

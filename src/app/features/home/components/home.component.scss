@@ -1,6 +1,16 @@
 .home-main-wrapper {
   display: flex;
   flex-direction: row;
+  height: 100%;
+  > .header-wrapper {
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    > * {
+      display: inherit;
+      justify-content: inherit;
+    }
+  }
   > .home-content-wrapper {
     display: inherit;
     flex-direction: column;
