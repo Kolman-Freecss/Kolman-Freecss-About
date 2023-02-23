@@ -15,11 +15,20 @@
     display: inherit;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     > * {
       display: inherit;
       justify-content: inherit;
     }
+    > .home-education-wrapper {
+      gap: 20px;
+      > .card {
+        border: none;
+        --bs-card-bg: transparent !important;
+      }
+    }
   }
+
 }
 
 

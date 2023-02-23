@@ -1,19 +1,36 @@
 <div class='home-main-wrapper'>
   <app-header class='header-wrapper'></app-header>
   <div class='home-content-wrapper'>
-    <div class='home-presentation-wrapper'>
+    <section class='home-presentation-wrapper'>
       Hola
       En la sección de <a class='nav-link' [routerLink]='game' data-bs-dismiss='offcanvas'>contacto</a> puedes enviarme
       un mensaje.
-    </div>
-    <div class='home-education-wrapper'>
-      Hola
-    </div>
-    <div class='home-experience-wrapper'>
+    </section>
+    <section class='home-education-wrapper'>
+      <div class="card" style="width: 18rem;">
+        <img src="assets/img/logo_marianao.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="assets/img/logo-uoc.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="assets/img/thecoreschool.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </section>
+    <section class='home-experience-wrapper'>
       Hola
       Ves al apartado de <a class='nav-link' [routerLink]='game' data-bs-dismiss='offcanvas'>juegos</a> para ver mis
       proyectos relacionados.
-    </div>
+    </section>
   </div>
 
 </div>
