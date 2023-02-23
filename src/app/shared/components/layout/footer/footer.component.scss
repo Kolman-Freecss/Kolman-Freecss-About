@@ -1,0 +1,29 @@
+.container-wrapper {
+  display: flex;
+  flex-direction: column;
+  > * {
+    display: flex;
+    justify-content: center;
+  }
+  > .icons-wrapper {
+    gap: 50px;
+  }
+}
+
+.fa-brands {
+  color: black;
+  > &:hover {
+    color: red;
+    > i.fa-github {
+      -webkit-animation: fa-spin 2s infinite linear;
+      -moz-animation: fa-spin 2s infinite linear;
+      -o-animation: fa-spin 2s infinite linear;
+      animation: fa-spin 2s infinite linear;
+    }
+  }
+}
+
+.fa-anim-hover:hover {
+  transform: scale(1.2);
+  transition: all 0.2s ease-in-out;
+}
