@@ -1,0 +1,21 @@
+.main-wrapper {
+  height: 100%;
+  position: absolute;
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+  > #carouselAutoplaying {
+    width: 100%;
+    > .carousel-inner {
+      height: 100%;
+      > .carousel-item {
+        height: 100%;
+        > img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

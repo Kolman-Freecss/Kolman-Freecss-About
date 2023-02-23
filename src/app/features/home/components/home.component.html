@@ -1,39 +1,21 @@
-<app-header></app-header>
-<div class='home-wrapper'>
+<div class='home-main-wrapper'>
+  <app-header></app-header>
+  <div class='home-content-wrapper'>
 
-  <div class='home-carousel-wrapper'>
-    <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/img/Logo_Krodun.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/Logo_Krodun.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="assets/img/Logo_Krodun.png" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+    <div class='home-presentation-wrapper'>
+      Hola
+      En la sección de <a class='nav-link' [routerLink]='game' data-bs-dismiss='offcanvas'>contacto</a> puedes enviarme
+      un mensaje.
+    </div>
+    <div class='home-education-wrapper'>
+      Hola
+    </div>
+    <div class='home-experience-wrapper'>
+      Hola
+
+      Ves al apartado de <a class='nav-link' [routerLink]='game' data-bs-dismiss='offcanvas'>juegos</a> para ver mis
+      proyectos relacionados.
     </div>
   </div>
-  <div class='home-presentation-wrapper'>
-    Hola
-    En la sección de <a class="nav-link" [routerLink]="game" data-bs-dismiss="offcanvas">contacto</a> puedes enviarme un mensaje.
-  </div>
-  <div class='home-education-wrapper'>
-    Hola
-  </div>
-  <div class='home-experience-wrapper'>
-    Hola
 
-    Ves al apartado de <a class="nav-link" [routerLink]="game" data-bs-dismiss="offcanvas">juegos</a> para ver mis proyectos relacionados.
-  </div>
 </div>

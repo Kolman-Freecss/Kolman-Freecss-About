@@ -1,28 +1,15 @@
-.home-wrapper {
+.home-main-wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  > * {
+  flex-direction: row;
+  > .home-content-wrapper {
     display: inherit;
-    justify-content: inherit;
-  }
-  > .home-carousel-wrapper {
-    height: 50vh;
-    flex-grow: 1;
-    > #carouselAutoplaying {
-      width: 100%;
-      > .carousel-inner {
-        height: 100%;
-        > .carousel-item {
-          height: 100%;
-          > img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-          }
-        }
-      }
+    flex-direction: column;
+    justify-content: center;
+    > * {
+      display: inherit;
+      justify-content: inherit;
     }
   }
 }
+
 

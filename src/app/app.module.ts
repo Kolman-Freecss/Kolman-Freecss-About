@@ -7,12 +7,14 @@ import { HomeModule } from './features/home';
 import { NavComponent } from './shared/components/layout/nav';
 import { FooterComponent } from './shared/components/layout/footer';
 import { GameModule } from './features/game';
+import { BackgroundComponent } from './shared/components/layout/background/background.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     FooterComponent,
+    BackgroundComponent,
   ],
   imports: [
     BrowserModule,

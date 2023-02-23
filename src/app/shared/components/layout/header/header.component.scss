@@ -5,4 +5,7 @@
 .navbar-wrapper {
   display: flex;
   justify-content: center;
+  > .navbar {
+    flex-direction: column;
+  }
 }

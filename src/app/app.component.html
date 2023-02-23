@@ -1,9 +1,13 @@
-<div class='mother-wrapper'>
-  <app-nav></app-nav>
-  <div class='parent-wrapper'>
-    <div>
-      <router-outlet></router-outlet>
+<div class='big-boss-wrapper'>
+  <app-background class='background-wrapper' [background]='background'></app-background>
+  <div class='mother-wrapper'>
+    <app-nav></app-nav>
+    <div class='parent-wrapper'>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
     </div>
+    <app-footer class='wrapper-footer'></app-footer>
   </div>
-  <app-footer class='wrapper-footer'></app-footer>
 </div>
+

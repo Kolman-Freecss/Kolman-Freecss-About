@@ -2,7 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
+.big-boss-wrapper {
+  height: 100%;
+  width: 100%;
+  > .background-wrapper {
+    height: inherit;
+    width: inherit;
+  }
 }
 
 .mother-wrapper {
@@ -20,7 +28,7 @@
 }
 
 .parent-wrapper > * {
-  padding: 40px 40px 40px 80px;
+  padding: 40px 40px 40px 40px;
   flex-grow: 1;
 }
 
