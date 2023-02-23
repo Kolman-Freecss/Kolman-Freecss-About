@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  home = '/home';
+  games = '/games';
+
   constructor() { }
 
   ngOnInit(): void {
