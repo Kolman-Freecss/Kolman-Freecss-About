@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GAMES_PATH, HOME_PATH } from '../../../paths';
 
 @Component({
   selector: 'app-nav',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  home = '/home';
-  games = '/games';
+  home = '/' + HOME_PATH;
+  games = '/' + GAMES_PATH;
 
   constructor() { }
 
