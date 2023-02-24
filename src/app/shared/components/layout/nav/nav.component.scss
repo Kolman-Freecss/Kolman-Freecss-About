@@ -7,10 +7,16 @@
   }
 }
 
+.container-fluid {
+  > .card-img-top {
+    width: 65px;
+  }
+}
+
 .navbar {
   align-items: flex-start;
   > .container-fluid {
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 
