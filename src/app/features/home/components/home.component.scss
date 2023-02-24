@@ -5,7 +5,6 @@
   > .header-wrapper {
     display: inherit;
     flex-direction: column;
-    justify-content: center;
     > * {
       display: inherit;
       justify-content: inherit;
@@ -19,9 +18,18 @@
     > * {
       display: inherit;
       justify-content: inherit;
+      padding: 40px;
+    }
+    > .home-introduction-wrapper {
+      height: 100vh;
+    }
+    > .home-presentation-wrapper {
+      background-color: gray;
+      flex-direction: column;
     }
     > .home-education-wrapper {
       gap: 20px;
+      flex-wrap: wrap;
       > .card {
         border: none;
         --bs-card-bg: transparent !important;

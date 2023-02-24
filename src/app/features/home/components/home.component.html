@@ -1,10 +1,18 @@
 <div class='home-main-wrapper'>
   <app-header class='header-wrapper'></app-header>
   <div class='home-content-wrapper'>
+    <section class='home-introduction-wrapper'>
+      Bienvenido a mi página web. Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS como <a [routerLink]='game'>LinkedIn</a>.
+    </section>
     <section class='home-presentation-wrapper'>
-      Hola
-      En la sección de <a class='nav-link' [routerLink]='game' data-bs-dismiss='offcanvas'>contacto</a> puedes enviarme
-      un mensaje.
+      <h1>¡Hola! Soy Sergio</h1>
+      <p>
+        Bienvenido a mi página web. Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS como <a [routerLink]='game'>LinkedIn</a>.
+        Soy Ingeniero informático con más de 5 años trabajando profesionalmente en proyectos web y muchos más en proyectos personales, además de tener una especial afinidad por construir y desarrollar videojuegos.
+      </p>
+      <p>
+      En la sección de <a [routerLink]='game'>games</a> puedes encontrar mis proyectos.
+      </p>
     </section>
     <section class='home-education-wrapper'>
       <div class="card" style="width: 18rem;">
@@ -21,6 +29,12 @@
       </div>
       <div class="card" style="width: 18rem;">
         <img src="assets/img/thecoreschool.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="assets/img/e-learning.png" class="card-img-top" alt="...">
         <div class="card-body">
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
