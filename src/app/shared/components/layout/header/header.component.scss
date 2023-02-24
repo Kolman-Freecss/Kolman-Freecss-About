@@ -3,14 +3,16 @@
 }
 
 .sticky-top {
-  top: 50%;
+  top: 40%;
 }
 
 .navbar-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 25px;
   > .navbar {
-    flex-direction: column;
+    display: grid;
+    justify-content: flex-start;
     > .navbar-brand {
       font-size: 2vh;
       opacity: 60%;
