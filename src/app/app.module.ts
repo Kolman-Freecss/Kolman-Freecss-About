@@ -8,6 +8,8 @@ import { NavComponent } from './shared/components/layout/nav';
 import { FooterComponent } from './shared/components/layout/footer';
 import { GameModule } from './features/game';
 import { BackgroundComponent } from './shared/components/layout/background/background.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { BackgroundComponent } from './shared/components/layout/background/backg
     FooterComponent,
     BackgroundComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HomeModule,
-    GameModule,
-  ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      HomeModule,
+      GameModule,
+      FontAwesomeModule,
+      BrowserAnimationsModule
+   ],
   providers: [],
   bootstrap: [AppComponent],
 })

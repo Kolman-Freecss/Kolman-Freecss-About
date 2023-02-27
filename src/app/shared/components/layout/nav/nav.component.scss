@@ -1,12 +1,3 @@
-.offcanvas-body {
-  display: flex;
-  > * {
-    justify-content: center;
-    align-items: center;
-    font-size: 2vh;
-  }
-}
-
 .container-fluid {
   > .card-img-top {
     width: 65px;
@@ -24,14 +15,17 @@
   position: fixed;
 }
 
-.bg-dark {
-  background-color: rgba(0,0,0,0) !important;
+.fa-solid {
+  color: white;
+  > &:hover {
+    color: red;
+    //transition: 0.9s;
+    //-webkit-transform: rotateZ(720deg);
+    //-moz-transform: rotateZ(720deg);
+    //transform: rotateZ(720deg);
+  }
 }
 
-.navbar-toggler {
-  border-color: transparent;
-  > .navbar-toggler-icon {
-    --icon-menu: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28245,248,255,0.84%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    background-image: var(--icon-menu);
-  }
+.fa-icon {
+  animation: rotateAnimation infinite;
 }
