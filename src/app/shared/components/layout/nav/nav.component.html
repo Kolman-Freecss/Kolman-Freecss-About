@@ -1,14 +1,14 @@
 <nav class="navbar fixed-top">
-  <div class="container-fluid">
+  <div class="container-fluid fa-2x">
     <img src="assets/img/Logo_Krodun.png" class="card-img-top" alt="...">
       <a *ngIf='isGames()' [routerLink]="home">
-        <div [@rotateAnimation]="isOpen ? 'rotated' : 'notRotated'" class='fa-beat-fade'>
-          <fa-icon [icon]="homeIcon" (mouseenter)='toggle()'></fa-icon>
+        <div [@rotateAnimation]="animationState" class='fa-beat-fade' (mouseenter)='toggleHover()'>
+          <fa-icon [icon]="homeIcon" ></fa-icon>
         </div>
       </a>
       <a *ngIf='isHome()' [routerLink]="games">
-        <div [@rotateAnimation]="isOpen ? 'rotated' : 'notRotated'" class='fa-beat-fade'>
-          <fa-icon [icon]="gameIcon" (mouseenter)='toggle()'></fa-icon>
+        <div [@rotateAnimation]="animationState" class='fa-beat-fade' (mouseenter)='toggleHover()'>
+          <fa-icon [icon]="gameIcon" ></fa-icon>
         </div>
       </a>
     <img src="assets/img/Logo_Krodun.png" class="card-img-top" alt="...">

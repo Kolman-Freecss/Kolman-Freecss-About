@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { GAMES_PATH, HOME_PATH } from '../../../paths';
 import { Router } from '@angular/router';
-import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { faGamepad, faPortrait } from '@fortawesome/free-solid-svg-icons';
 
 const pulseAnimation = trigger('pulseAnimation', [
   state('open', style({ transform: 'transform: scale(1)' })),
@@ -31,23 +31,15 @@ export class NavComponent {
 
   home = '/' + HOME_PATH;
   games = '/' + GAMES_PATH;
-  homeIcon = faCoffee;
-  gameIcon = faCoffee;
+  homeIcon = faPortrait;
+  gameIcon = faGamepad;
 
-  animationState = 'open';
-  faCoffee = faCoffee;
-
+  animationState = 'rotated';
 
   constructor(private route: Router) { }
 
-  isOpen = true;
-
-  toggle() {
-    this.isOpen = !this.isOpen;
-  }
-
-  togglePulse() {
-    this.animationState = this.animationState === 'open' ? 'open' : 'closed';
+  toggleHover() {
+    this.animationState = this.animationState === 'rotated' ? 'notRotated' : 'rotated'
   }
 
   isHome(): boolean {
