@@ -38,12 +38,16 @@
       }
     }
     > .home-presentation-wrapper {
-      background-color: gray;
+      background-image: url('/assets/img/general-background-5.jpg');
       flex-direction: column;
+      background-position: center;
     }
     > .home-education-wrapper {
-      background-color: black;
       flex-direction: column;
+      background-image: url('/assets/img/general-background-6.jpg');
+      background-size: cover;
+      background-position: center;
+      background-color: black;
       > .education-card-wrapper {
         padding-top: 20px;
         display: flex;
@@ -54,6 +58,9 @@
         > .card {
           border: none;
           --bs-card-bg: transparent !important;
+          > .card-img-top {
+            height: 40%;
+          }
         }
       }
 
@@ -62,6 +69,9 @@
       background-color: gray;
       flex-direction: column;
       align-items: center;
+      background-image: url('/assets/img/general-background-7.jpg');
+      background-size: cover;
+      //background-position: center;
       > .experience-card-wrapper {
         padding-top: 50px;
         display: flex;
@@ -77,7 +87,7 @@
           margin-bottom: 4vh;
 
           > .card-img-top {
-            height: 35%;
+            height: 40%;
           }
 
           &::before {
