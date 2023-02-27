@@ -24,6 +24,18 @@
     > .home-introduction-wrapper {
       height: 100vh;
       align-items: center;
+      flex-direction: column;
+      > .home-introduction-buttons-wrapper {
+        display: inherit;
+        flex-direction: row;
+        gap: 40px;
+        > .introduction-button {
+          color: white;
+          > &:hover {
+            color: red;
+          }
+        }
+      }
     }
     > .home-presentation-wrapper {
       background-color: gray;

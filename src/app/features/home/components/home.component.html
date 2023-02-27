@@ -4,7 +4,23 @@
 <div class='home-main-wrapper'>
   <div class='home-content-wrapper'>
     <section class='home-introduction-wrapper' id='home-introduction-id' #homeintroduction>
-      Bienvenido a mi página web! Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS como <a [routerLink]='game'>LinkedIn</a>.
+      <h1>Bienvenido!</h1>
+      <h1>Soy Sergio! (Kolman-Freecss)</h1>
+      <p>
+        Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS.
+      </p>
+      <div class='home-introduction-buttons-wrapper fa-3x'>
+        <a [routerLink]="github" target='_blank' class='introduction-button'>
+          <div [@rotateAnimation]="animationGithubState" class='fa-beat-fade' (mouseenter)='toggleGithubHover()'>
+            <fa-icon [icon]="githubIcon" ></fa-icon>
+          </div>
+        </a>
+        <a [routerLink]="linkedin" target='_blank' class='introduction-button'>
+          <div [@rotateAnimation]="animationLinkedinState" class='fa-beat-fade' (mouseenter)='toggleLinkedinHover()'>
+            <fa-icon [icon]=linkedinIcon ></fa-icon>
+          </div>
+        </a>
+      </div>
     </section>
     <section class='home-presentation-wrapper' id='home-presentation-id'>
       <h1>¡Hola! Soy Sergio</h1>

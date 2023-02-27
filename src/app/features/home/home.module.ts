@@ -4,6 +4,9 @@ import { HomeComponent } from './components';
 import { HomeRoutingModule } from './home.routing';
 import { SharedModule } from '../../shared';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -13,8 +16,8 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     HomeRoutingModule,
-    SharedModule,
-    CommonModule
+    CommonModule,
+    FontAwesomeModule,
   ],
 })
 export class HomeModule {
