@@ -7,7 +7,7 @@ import { HomeModule } from './features/home';
 import { NavComponent } from './shared/components/layout/nav';
 import { FooterComponent } from './shared/components/layout/footer';
 import { GameModule } from './features/game';
-import { BackgroundComponent } from './shared/components/layout/background/background.component';
+import { BackgroundComponent } from './shared/components/layout/background';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -18,14 +18,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     BackgroundComponent,
   ],
-   imports: [
-      BrowserModule,
-      AppRoutingModule,
-      HomeModule,
-      GameModule,
-      FontAwesomeModule,
-      BrowserAnimationsModule
-   ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HomeModule,
+    GameModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

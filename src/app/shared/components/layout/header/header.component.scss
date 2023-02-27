@@ -23,3 +23,17 @@
     }
   }
 }
+
+.hide-header-wrapper {
+  pointer-events: none;
+  &.navbar-wrapper .navbar a {
+    color: transparent;
+  }
+}
+
+.show-header-wrapper {
+  pointer-events: auto;
+  &.navbar-wrapper .navbar a  {
+    color: white;
+  }
+}

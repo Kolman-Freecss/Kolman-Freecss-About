@@ -1,7 +1,9 @@
-<app-header class='header-wrapper'></app-header>
+<app-header class='header-wrapper' [mouseHoverWrapper]='mouseHoverWrapper'
+            (mouseenter)='onMouseHoverWrapper()'
+            (mouseleave)='onMouseLeaveWrapper()'></app-header>
 <div class='home-main-wrapper'>
   <div class='home-content-wrapper'>
-    <section class='home-introduction-wrapper' id='home-introduction-id'>
+    <section class='home-introduction-wrapper' id='home-introduction-id' #homeintroduction>
       Bienvenido a mi página web! Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS como <a [routerLink]='game'>LinkedIn</a>.
     </section>
     <section class='home-presentation-wrapper' id='home-presentation-id'>

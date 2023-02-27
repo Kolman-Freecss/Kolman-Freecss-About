@@ -1,4 +1,6 @@
-<div class='navbar-wrapper sticky-top'>
+<div
+    [className]="showHeader? 'navbar-wrapper sticky-top show-header-wrapper' : 'navbar-wrapper sticky-top hide-header-wrapper'"
+     id='headerwrapper' #headerwrapper>
   <nav class='navbar  bg-body-tertiary'>
     <a class='navbar-brand' href='#home-introduction-id'>INICIO</a>
     <a class='navbar-brand' href='#home-presentation-id'>SOBRE MI</a>
