@@ -9,22 +9,15 @@
         </div>
       </div>
 
+      <div class='filter-icon-wrapper fa-2x' (click)='showFilters()'>
+        <h4>Filtros</h4>
+        <fa-icon [icon]="filterIcon"></fa-icon>
+      </div>
 
-      <!--      <div class="card" style="width: 18rem;">-->
-      <!--        <img src="..." class="card-img-top" alt="...">-->
-      <!--        <div class="card-body">-->
-      <!--          <h5 class="card-title">Card title</h5>-->
-      <!--          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-      <!--          <a href="#" class="btn btn-primary">Go somewhere</a>-->
-      <!--        </div>-->
-      <!--      </div>-->
-
-      <h4>Buscar</h4>
-
-      <form [formGroup]='form' (ngSubmit)='onSubmit()' class='mb-3'>
+      <form *ngIf='showFilter' [formGroup]='form' (ngSubmit)='onSubmit()' class='game-form-wrapper'>
         <div class='row'>
 
-          <div class='form-group mb-3 col-12 col-md-4'>
+          <div class='form-group mb-3 col-12 col-md-2'>
             <label for='name' class='form-label'>Nombre</label>
             <input type='text' formControlName='name' class='form-control' id='name'
                    placeholder='Escribe el nombre del juego' />
@@ -37,10 +30,10 @@
           </div>
         </div>
 
-        <div class='row-fluid'>
-          <button type='submit' class='btn btn-outline-primary col-2'>Buscar</button>
-          <button type="button" (click)="onReset()" class="btn btn-warning">
-            Limpiar
+        <div class='filter-buttons-wrapper'>
+          <button type='submit' class='btn btn-outline-danger' id='game-submit-button'>Buscar</button>
+          <button type='button' (click)='onReset()' class='btn btn-danger' id='game-reset-button'>
+            Borrar
           </button>
         </div>
       </form>
@@ -49,20 +42,21 @@
         No se han encontrado actos que cumplan los criterios de búsqueda empleados en el formulario
       </div>
 
-      <div *ngIf='games.length > 0 && submitted' class='row mb-2'>
-        <hr class='hr hr-blurry' />
+      <div *ngIf='games.length > 0 && submitted' class='cards-data-table-wrapper'>
 
         <h4>Juegos</h4>
 
-        <div *ngFor='let game of games' class='col-md-6'>
-          <div class='row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative'>
-            <div class='col p-4 d-flex flex-column position-static'>
-              <strong class='d-inline-block mb-2 text-primary'>{{game.name}}</strong>
-              <h3 class='mb-0'>{{game.name}}</h3>
-              <p class='card-text mb-auto'>{{game.description}}</p>
-            </div>
-            <div class='col-auto d-none d-lg-block'>
-              <img [src]='game.image' alt='Imagen de juego' width='250' height='250'>
+        <div class='cards-filtered-wrapper'>
+          <div *ngFor='let game of games' class='card-wrapper'>
+            <div class='card border rounded overflow-hidden mb-4 shadow-sm h-md-250'>
+              <div class='card-body p-4'>
+                <h3 class='mb-0'>{{game.name}}</h3>
+                <p class='card-text mb-auto'>{{game.description}}</p>
+                <a href="#" class="btn btn-danger">Source!</a>
+              </div>
+              <div class='p-4 d-none d-lg-block'>
+                <img [src]='game.image' alt='Imagen de juego'>
+              </div>
             </div>
           </div>
         </div>

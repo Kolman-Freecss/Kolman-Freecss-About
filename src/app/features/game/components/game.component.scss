@@ -17,6 +17,88 @@
     > .game-table-wrapper {
       height: 100vh;
       flex-direction: column;
+      justify-content: flex-start;
+
+      > .game-form-wrapper {
+        > .filter-buttons-wrapper {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          > #game-submit-button {
+            border-color: #430202;
+            width: 15%;
+            &:hover {
+              background-color: red;
+            }
+          }
+          > #game-reset-button {
+            border-color: #430202;
+            background-color: #430202;
+            width: 10%;
+            &:hover {
+              background-color: red;
+            }
+          }
+        }
+      }
+
+      > .filter-icon-wrapper {
+        cursor: pointer;
+        width: 10%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        > fa-icon {
+          color: #430202;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+
+      > .cards-data-table-wrapper {
+        display: inherit;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+
+        > .cards-filtered-wrapper {
+          display: inherit;
+          flex-direction: row;
+          flex-wrap: wrap;
+          column-gap: 30px;
+
+          > .card-wrapper {
+            flex-basis: 30%;
+            flex-shrink: 0;
+
+            > .card {
+              display: flex;
+              flex-direction: row;
+              background-color: transparent;
+              > .card-body {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                > .btn {
+                  background-color: #430202;
+                  border: none;
+                  width: 20%;
+                  &:hover {
+                    background-color: red;
+                  }
+                }
+              }
+              & img {
+                width: 150px;
+                height: 150px;
+              }
+            }
+          }
+        }
+
+      }
     }
   }
 }

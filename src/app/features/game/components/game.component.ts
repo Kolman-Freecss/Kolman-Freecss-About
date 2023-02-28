@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { GameService } from '../services';
 import { ToastrService } from 'ngx-toastr';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-game',
@@ -16,6 +17,8 @@ export class GameComponent implements OnInit, OnDestroy {
   submitted = true;
   loading = false;
   games: Game[] = [];
+  showFilter = true;
+  filterIcon = faFilter;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -87,6 +90,10 @@ export class GameComponent implements OnInit, OnDestroy {
           this.loading = false;
         },
       });
+  }
+
+  showFilters() {
+    this.showFilter = !this.showFilter;
   }
 
   ngOnInit(): void {
