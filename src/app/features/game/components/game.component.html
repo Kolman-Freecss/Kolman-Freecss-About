@@ -52,7 +52,7 @@
               <div class='card-body p-4'>
                 <h3 class='mb-0'>{{game.name}}</h3>
                 <p class='card-text mb-auto'>{{game.description}}</p>
-                <a href="#" class="btn btn-danger">Source!</a>
+                <a [href]='game.link' class="btn btn-danger" target='_blank'>Source!</a>
               </div>
               <div class='p-4 d-none d-lg-block'>
                 <img [src]='game.image' alt='Imagen de juego'>
@@ -61,6 +61,22 @@
           </div>
         </div>
       </div>
+
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
 
     </section>
   </div>

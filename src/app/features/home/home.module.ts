@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home.routing';
 import { SharedModule } from '../../shared';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       CommonModule,
       FontAwesomeModule,
       SharedModule,
+      NgxWebstorageModule.forRoot(),
    ],
 })
 export class HomeModule {

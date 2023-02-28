@@ -5,11 +5,13 @@
   <div class='home-main-wrapper'>
     <div class='home-content-wrapper'>
       <section class='home-introduction-wrapper' id='home-introduction-id' #homeintroduction appScrollSection="one">
-        <h1>Bienvenido!</h1>
-        <h1>Soy Sergio! (Kolman-Freecss)</h1>
-        <p>
-          Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS.
-        </p>
+        <div class='home-introduction-text-wrapper'>
+          <h1>Bienvenido!</h1>
+          <h2>Soy Sergio! (Kolman-Freecss)</h2>
+          <p>
+            Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS.
+          </p>
+        </div>
         <div class='home-introduction-buttons-wrapper fa-3x'>
           <a [routerLink]='github' target='_blank' class='introduction-button'>
             <div [@rotateAnimation]='animationGithubState' class='fa-beat-fade' (mouseenter)='toggleGithubHover()'>
