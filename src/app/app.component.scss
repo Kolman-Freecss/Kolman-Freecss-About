@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,400i,500,500i,600,600i,700,700i');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: white;
-  font-family: "Courier New", serif;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
 }
 
 .big-boss-wrapper {
