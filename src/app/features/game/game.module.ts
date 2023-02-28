@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GameComponent } from './components';
 import { GameRoutingModule } from './game.routing';
 import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     GameRoutingModule,
     ToastrModule.forRoot(),
+    ReactiveFormsModule,
   ],
 })
 export class GameModule {

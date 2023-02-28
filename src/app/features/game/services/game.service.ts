@@ -24,12 +24,16 @@ export class GameService {
   searchGames(query: SearchGamesQuery): Observable<Game[]> {
     let gamesFiltered: Game[] = [];
 
+    if (query.name == null && query.description == null) {
+      return this.getGames();
+    }
+
     this.games.forEach((game) => {
-      if (query.name != null && game.name.toLowerCase().includes(query.name.toLowerCase())) {
-        gamesFiltered[game.id] = game;
+      if (query.name != null && query.name.length > 0 && game.name.toLowerCase().includes(query.name.toLowerCase())) {
+        gamesFiltered.push(game);
       }
-      if (query.description != null && game.description.toLowerCase().includes(query.description.toLowerCase())) {
-        gamesFiltered[game.id] = game;
+      if (query.description != null && query.description.length > 0 && game.description.toLowerCase().includes(query.description.toLowerCase())) {
+        gamesFiltered.push(game);
       }
     });
 

@@ -1,4 +1,4 @@
-.game-wrapper {
+.game-main-wrapper {
   display: flex;
   flex-direction: column;
 
@@ -16,7 +16,6 @@
 
     > .game-table-wrapper {
       height: 100vh;
-      align-items: center;
       flex-direction: column;
     }
   }

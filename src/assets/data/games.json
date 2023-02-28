@@ -3,6 +3,6 @@
     "id": 1,
     "name": "Krodun",
     "description": "Krodun is a 3D game engine written in C++ and Lua. It is designed to be easy to use and to be extensible.",
-    "image": "../img/Alien.png"
+    "image": "assets/img/Alien.png"
   }
 ]
