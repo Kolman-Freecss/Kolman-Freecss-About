@@ -10,92 +10,169 @@
         Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS.
       </p>
       <div class='home-introduction-buttons-wrapper fa-3x'>
-        <a [routerLink]="github" target='_blank' class='introduction-button'>
-          <div [@rotateAnimation]="animationGithubState" class='fa-beat-fade' (mouseenter)='toggleGithubHover()'>
-            <fa-icon [icon]="githubIcon" ></fa-icon>
+        <a [routerLink]='github' target='_blank' class='introduction-button'>
+          <div [@rotateAnimation]='animationGithubState' class='fa-beat-fade' (mouseenter)='toggleGithubHover()'>
+            <fa-icon [icon]='githubIcon'></fa-icon>
           </div>
         </a>
-        <a [routerLink]="linkedin" target='_blank' class='introduction-button'>
-          <div [@rotateAnimation]="animationLinkedinState" class='fa-beat-fade' (mouseenter)='toggleLinkedinHover()'>
-            <fa-icon [icon]=linkedinIcon ></fa-icon>
+        <a [routerLink]='linkedin' target='_blank' class='introduction-button'>
+          <div [@rotateAnimation]='animationLinkedinState' class='fa-beat-fade' (mouseenter)='toggleLinkedinHover()'>
+            <fa-icon [icon]=linkedinIcon></fa-icon>
           </div>
         </a>
       </div>
     </section>
     <section class='home-presentation-wrapper' id='home-presentation-id'>
-      <h1><img src="assets/img/Alien.png" alt="Sergio" style='width: 5%'> Quien soy <img src="assets/img/Alien.png" alt="Sergio" style='width: 5%'></h1>
+      <h1><img src='assets/img/Alien.png' alt='Sergio' style='width: 5%'> Quien soy <img src='assets/img/Alien.png'
+                                                                                         alt='Sergio' style='width: 5%'>
+      </h1>
       <p>
-        Soy Ingeniero informático con más de 5 años trabajando profesionalmente en proyectos web y muchos más en proyectos personales, además de tener una especial afinidad por construir y desarrollar videojuegos.
+        Soy Ingeniero informático con más de 5 años trabajando profesionalmente en proyectos web y muchos más en
+        proyectos personales, además de tener una especial afinidad por construir y desarrollar videojuegos.
+      </p>
+      <h4>Skills</h4>
+      <ul>
+        <li>
+          <strong>Desarrollo de videojuegos</strong>
+          <span class='badge bg-secondary'>Unity</span>
+          <span class='badge bg-secondary'>C#</span>
+          <span class='badge bg-secondary'>C++</span>
+          <span class='badge bg-secondary'>Java</span>
+          <span class='badge bg-secondary'>Javascript</span>
+        </li>
+        <li>
+          <strong>Desarrollo web</strong>
+          <span class='badge bg-secondary'>Angular</span>
+          <span class='badge bg-secondary'>Spring</span>
+          <span class='badge bg-secondary'>Typescript</span>
+          <span class='badge bg-secondary'>MEAN Stack</span>
+          <span class='badge bg-secondary'>J2EE</span>
+          <span class='badge bg-secondary'>JPA Hibernate</span>
+        </li>
+        <li>
+          <strong>DevOps</strong>
+          <span class='badge bg-secondary'>Docker</span>
+          <span class='badge bg-secondary'>Kubernetes</span>
+          <span class='badge bg-secondary'>Gitlab</span>
+          <span class='badge bg-secondary'>Terraform</span>
+          <span class='badge bg-secondary'>ELK</span>
+        </li>
+        <li>
+          <strong>Lenguajes</strong>
+          <span class='badge bg-secondary'>Java</span>
+          <span class='badge bg-secondary'>Typescript</span>
+          <span class='badge bg-secondary'>Python</span>
+          <span class='badge bg-secondary'>C#</span>
+          <span class='badge bg-secondary'>C++</span>
+        </li>
+        <li>
+          <strong>Otros</strong>
+          <span class='badge bg-secondary'>SCRUM</span>
+          <span class='badge bg-secondary'>Azure</span>
+        </li>
+      </ul>
+      <p>
+        En los proyectos que he trabajado he hecho uso de patrones de arquitectura y diseño como la arquitectura hexagonal, DAO, DTO, MVC, etc.
       </p>
       <p>
-      En la sección de <a [routerLink]='game'>games</a> puedes encontrar mis proyectos e información relacionada con ellos, espero que te sea de ayuda!
+        He construido y desplegado servicios web (tanto front como back) tanto en entornos locales como en entornos en la nube de Azure.
+      </p>
+      <p>
+        He realizado implantaciones de infrastructuras con las tecnologías Docker, Kubernetes, Gitlab, Terraform y ELK.
+      </p>
+      <p>
+         También he hecho uso de multitud de tecnologías aparte de las mencionadas, como el control de versiones Git, gestores de dependencias como Maven o Gradle, frameworks de testing como JUnit o TestNG, frameworks de diseño como Bootstrap, etc.
+      </p>
+      <p>
+        En la sección de <a [routerLink]='game'>games</a> puedes encontrar mis proyectos e información relacionada con
+        ellos, espero que te sea de ayuda!
       </p>
     </section>
     <section class='home-education-wrapper' id='home-education-id'>
       <h1>Formación</h1>
       <div class='education-card-wrapper'>
-        <div class="card" style="width: 18rem;">
-          <img src="assets/img/logo_marianao.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">
-              <strong>IES Marianao Sant Boi del Llobregat 2016 - 2018</strong>
-              <br>
-              <strong>Grado Superior en Desarrollo de Aplicaciones Web (DAM)</strong>
-            </p>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="assets/img/logo-uoc.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <strong>Universitat Oberta de Catalunya 2018 - 2022</strong>
-            <br>
-            <strong>Ingeniería informática</strong>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="assets/img/thecoreschool.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <strong>The core school 2023 - En curso</strong>
-            <br>
+        <div class='card' style='width: 18rem;'>
+          <img src='assets/img/thecoreschool.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>The core school 2023 - En curso</h5>
             <strong>Máster en programación de videojuegos</strong>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="assets/img/e-learning.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <strong>E-learning</strong>
-            <br>
-            <strong>Varias certificaciones en plataformas como Udemy, OpenWebinars, Coursera... Y aprendizaje en multitud de fuentes de información</strong>
+        <div class='card' style='width: 18rem;'>
+          <img src='assets/img/logo-uoc.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>Universitat Oberta de Catalunya 2018 - 2022</h5>
+            <strong>Ingeniería informática</strong>
+          </div>
+        </div>
+        <div class='card' style='width: 18rem;'>
+          <img src='assets/img/logo_marianao.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>IES Marianao 2016 - 2018</h5>
+            <strong>Grado Superior en Desarrollo de Aplicaciones Web (DAM)</strong>
+          </div>
+        </div>
+        <div class='card' style='width: 18rem;'>
+          <img src='assets/img/e-learning.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>E-learning</h5>
+            <strong>Varias certificaciones y aprendizaje en plataformas como Udemy, OpenWebinars, Coursera...</strong>
           </div>
         </div>
       </div>
     </section>
     <section class='home-experience-wrapper' id='home-experience-id'>
       <h1>Experiencia</h1>
-      <p>Hola Ves al apartado de <a [routerLink]='game'>juegos</a> para ver mis proyectos relacionados.</p>
       <div class='experience-card-wrapper'>
-        <div class="card" style="width: 18rem;">
-          <img src="assets/img/logo_marianao.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class='card'>
+          <img src='assets/img/logo_marianao.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>Senior Software Engineer & Analyst</h5>
+            <strong>Imagar Solutions Company NOV 2022 - Actual</strong>
+            <p>Diseño de estructura y arquitectura de proyectos</p>
+            <p>Implantaciones de infraestructuras DevOps</p>
+            <p>Creación de servicios Python</p>
+            <p>Implementaciones y mantenimientos de servicios con Angular y Springboot</p>
+            <p>Administración DDBB</p>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="assets/img/logo-uoc.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class='card'>
+          <img src='assets/img/logo-uoc.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>Software Engineer</h5>
+            <strong>Capgemini Engineering ENE 2022 - NOV 2022</strong>
+            <p>Diseño de estructura y arquitectura de proyectos</p>
+            <p>Desarrollo de nuevas características tanto para front-end como back-end</p>
+            <p>Desarrollo de REST API para la parte APP</p>
+            <p>Migración de diferentes frameworks a nuevas tendencias</p>
+            <p>Administración DDBB</p>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="assets/img/thecoreschool.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class='card'>
+          <img src='assets/img/thecoreschool.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>Software Engineer</h5>
+            <strong>Carver Advanced Systems S.L SEPT 2018 - ENE 2022</strong>
+            <p>Full stack en el proceso de todo el ciclo de vida de múltiples proyectos</p>
+            <p>Desarrollo y mantenimiento de web apps y web services API REST con Java EE</p>
+            <p>Administración DDBB</p>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="assets/img/e-learning.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class='card'>
+          <img src='assets/img/e-learning.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>Software Developer</h5>
+            <strong>Everis FEB 2018 - JUL 2018</strong>
+            <p>Desarrollo de una web app para una inmobiliaria</p>
+          </div>
+        </div>
+        <div class='card'>
+          <img src='assets/img/e-learning.png' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5>Hardware Technician</h5>
+            <strong>BEEP Informática OCT 2018 - MAY 2016</strong>
+            <p>Mantenimiento y instalación de Hardware y Software</p>
+            <p>Administración y instalación de SO</p>
           </div>
         </div>
       </div>

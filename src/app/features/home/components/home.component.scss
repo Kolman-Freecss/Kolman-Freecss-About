@@ -41,6 +41,11 @@
       background-image: url('/assets/img/general-background-5.jpg');
       flex-direction: column;
       background-position: center;
+      > & > ul > li {
+        > .badge {
+          margin-left: 5px;
+        }
+      }
     }
     > .home-education-wrapper {
       flex-direction: column;
@@ -61,6 +66,10 @@
           > .card-img-top {
             height: 40%;
           }
+          > .card-body {
+            display: flex;
+            flex-direction: column;
+          }
         }
       }
 
@@ -78,23 +87,25 @@
         flex-direction: inherit;
         flex-wrap: wrap;
         margin-bottom: -40px;
+        width: 30%;
 
         > .card {
           border: none;
           --bs-card-bg: transparent !important;
-          height: 20%;
           position: relative;
           margin-bottom: 4vh;
+          width: 100%;
 
           > .card-img-top {
             height: 40%;
+            width: 45%;
           }
 
           &::before {
             content: '';
             position: absolute;
-            top: -30%;
-            bottom: 110%;
+            top: -5rem;
+            bottom: 105%;
             left: 50%;
             width: 1px;
             background-color: #ccc;
