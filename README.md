@@ -1,11 +1,10 @@
 # Kolman Freecss
 
-Built with Angular 17
+Built with Angular 15
 
 ## Dependencies
 
 - Bootstrap 5
-- Prettier
 - Redux
 
 ---

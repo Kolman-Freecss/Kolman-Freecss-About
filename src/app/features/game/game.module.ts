@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameComponent } from './components';
 import { GameRoutingModule } from './game.routing';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { GameRoutingModule } from './game.routing';
   ],
   imports: [
     CommonModule,
-    GameRoutingModule
+    GameRoutingModule,
+    ToastrModule.forRoot(),
   ],
 })
 export class GameModule {

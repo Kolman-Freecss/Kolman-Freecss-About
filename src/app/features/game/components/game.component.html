@@ -1,3 +1,47 @@
-<div class='game-wrapper'>
-  <p>game works!</p>
+<div class='game-main-wrapper'>
+  <div class='game-content-wrapper'>
+    <section class='game-table-wrapper'>
+
+      <div *ngIf="loading" class="loading-window">
+        <div class="alert alert-info lead text-center">
+          <i class="fa fa-fw fa-spinner fa-pulse" aria-hidden="true"></i>
+          Cargando...
+        </div>
+      </div>
+
+
+<!--      <div class="card" style="width: 18rem;">-->
+<!--        <img src="..." class="card-img-top" alt="...">-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">Card title</h5>-->
+<!--          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--          <a href="#" class="btn btn-primary">Go somewhere</a>-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <div *ngIf="games.length === 0 && submitted" class="alert alert-secondary" role="alert">
+        No se han encontrado actos que cumplan los criterios de búsqueda empleados en el formulario
+      </div>
+
+      <div *ngIf="games.length > 0 && submitted" class="row mb-2">
+        <hr class="hr hr-blurry"/>
+
+        <h4>Juegos</h4>
+
+        <div *ngFor="let game of games" class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">{{game.name}}</strong>
+              <h3 class="mb-0">{{game.name}}</h3>
+              <p class="card-text mb-auto">{{game.description}}</p>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img [src]="game.image" alt="imagen de acto" width="250" height="250">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
 </div>
