@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+a {
+  color: red;
+  text-decoration: none;
+  &:hover {
+    color: rgb(133 0 11 / 96%);
+  }
+}
+
+h1 {
+  color: rgb(133 0 11 / 96%);
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 12px rgb(0 0 0 / 95%);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #430202;
+  border-radius: 15pt;
+}
