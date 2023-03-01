@@ -1,6 +1,19 @@
-<div class='game-main-wrapper'>
+<div class='game-main-wrapper' appScrollManager>
   <div class='game-content-wrapper'>
-    <section class='game-table-wrapper'>
+    <section class='game-introduction-wrapper'>
+      <div class='game-introduction-text-wrapper'>
+        <h2>Unity, Multijugador, RPG's y más</h2>
+        <h1>¡Investiga los juegos que he realizado aquí abajo!</h1>
+      </div>
+      <div class='game-introduction-buttons-wrapper fa-3x'>
+        <a class='introduction-button' appScrollAnchor="game-table">
+          <div class='fa-beat-fade'>
+            <fa-icon [icon]='arrow'></fa-icon>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class='game-table-wrapper' appScrollSection="game-table">
 
       <div *ngIf='loading' class='loading-window'>
         <div class='alert alert-info lead text-center'>
@@ -54,7 +67,7 @@
                 <p class='card-text mb-auto'>{{game.description}}</p>
                 <a [href]='game.link' class="btn btn-danger" target='_blank'>Source!</a>
               </div>
-              <div class='p-4 d-none d-lg-block'>
+              <div class='p-4'>
                 <img [src]='game.image' alt='Imagen de juego'>
               </div>
             </div>

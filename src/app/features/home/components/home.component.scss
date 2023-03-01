@@ -104,7 +104,6 @@
         flex-direction: inherit;
         flex-wrap: wrap;
         margin-bottom: -40px;
-        width: 30%;
 
         > .card {
           border: none;
@@ -113,10 +112,11 @@
           margin-bottom: 4vh;
           width: 100%;
           align-items: center;
+          text-align: center;
 
           > .card-img-top {
             height: 40%;
-            width: 45%;
+            width: 30vh;
           }
 
           > .card-body {

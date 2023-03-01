@@ -4,9 +4,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { GameService } from '../services';
 import { ToastrService } from 'ngx-toastr';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesDown, faFilter } from '@fortawesome/free-solid-svg-icons';
 import { Options } from '../../../shared/models';
 import { GamePage } from '../models/game';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-game',
@@ -22,6 +23,7 @@ export class GameComponent implements OnInit, OnDestroy {
     filteredPages: 0,
     totalElements: 0,
   };
+  arrow = faAnglesDown;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 

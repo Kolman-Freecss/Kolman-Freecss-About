@@ -1,6 +1,7 @@
 .game-main-wrapper {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   > .game-content-wrapper {
     display: inherit;
@@ -11,13 +12,45 @@
     > * {
       display: inherit;
       justify-content: inherit;
-      padding: 10em;
+      padding: 7%;
+    }
+
+    > .game-introduction-wrapper {
+      height: 100vh;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      > .game-introduction-text-wrapper {
+        display: inherit;
+        flex-direction: column;
+        align-items: center;
+        > h1 {
+          font-size: calc(1rem + 1.5vw);
+          color: white;
+        }
+        > h2 {
+          color: rgb(187 8 22 / 96%);
+          font-size: calc(1rem + 1vw);
+        }
+      }
+      > .game-introduction-buttons-wrapper {
+        display: inherit;
+        flex-direction: row;
+        gap: 40px;
+        cursor: pointer;
+        > .game-button {
+          color: white;
+          > &:hover {
+            color: red;
+          }
+        }
+      }
     }
 
     > .game-table-wrapper {
-      height: 100vh;
       flex-direction: column;
       justify-content: flex-start;
+      background-image: url('../../../../assets/img/general-background-7.jpg');
 
       > .game-form-wrapper {
         > .filter-buttons-wrapper {
@@ -27,7 +60,7 @@
 
           > #game-submit-button {
             border-color: #430202;
-            width: 15%;
+            width: 20vh;
 
             &:hover {
               background-color: red;
@@ -37,7 +70,7 @@
           > #game-reset-button {
             border-color: #430202;
             background-color: #430202;
-            width: 10%;
+            width: 15vh;
 
             &:hover {
               background-color: red;
@@ -78,6 +111,7 @@
           > .card-wrapper {
             flex-basis: 30%;
             flex-shrink: 0;
+            display: flex;
 
             > .card {
               display: flex;
@@ -92,7 +126,7 @@
                 > .btn {
                   background-color: #430202;
                   border: none;
-                  width: 20%;
+                  width: 15vh;
 
                   &:hover {
                     background-color: red;
@@ -101,8 +135,8 @@
               }
 
               & img {
-                width: 150px;
-                height: 150px;
+                width: 13vh;
+                height: 13vh;
               }
             }
           }

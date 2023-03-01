@@ -25,7 +25,7 @@
     flex-flow: row wrap;
     > .parent-wrapper {
       display: flex;
-      width: 100vw;
+      width: 100%;
       z-index: 1;
 
       > * {
