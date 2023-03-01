@@ -13,12 +13,12 @@
           </p>
         </div>
         <div class='home-introduction-buttons-wrapper fa-3x'>
-          <a [routerLink]='github' target='_blank' class='introduction-button'>
+          <a [href]='github' target='_blank' class='introduction-button'>
             <div [@rotateAnimation]='animationGithubState' class='fa-beat-fade' (mouseenter)='toggleGithubHover()'>
               <fa-icon [icon]='githubIcon'></fa-icon>
             </div>
           </a>
-          <a [routerLink]='linkedin' target='_blank' class='introduction-button'>
+          <a [href]='linkedin' target='_blank' class='introduction-button'>
             <div [@rotateAnimation]='animationLinkedinState' class='fa-beat-fade' (mouseenter)='toggleLinkedinHover()'>
               <fa-icon [icon]=linkedinIcon></fa-icon>
             </div>
