@@ -9,7 +9,7 @@ export class FooterComponent  {
 
   linkedin = 'https://www.linkedin.com/in/sergiomartinezroman/';
   github = 'https://github.com/Kolman-Freecss';
-  youtube = 'https://www.youtube.com/channel/UCZ9Y4Z5QZ5Z9Z5Z9';
+  youtube = 'https://www.youtube.com/@Kolman-Freecss/videos';
 
   constructor() { }
 
