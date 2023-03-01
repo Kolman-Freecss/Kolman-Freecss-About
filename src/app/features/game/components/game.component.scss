@@ -24,17 +24,21 @@
           display: flex;
           flex-direction: row;
           gap: 20px;
+
           > #game-submit-button {
             border-color: #430202;
             width: 15%;
+
             &:hover {
               background-color: red;
             }
           }
+
           > #game-reset-button {
             border-color: #430202;
             background-color: #430202;
             width: 10%;
+
             &:hover {
               background-color: red;
             }
@@ -49,8 +53,10 @@
         flex-direction: row;
         align-items: center;
         gap: 20px;
+
         > fa-icon {
           color: #430202;
+
           &:hover {
             color: red;
           }
@@ -77,19 +83,23 @@
               display: flex;
               flex-direction: row;
               background-color: transparent;
+
               > .card-body {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+
                 > .btn {
                   background-color: #430202;
                   border: none;
                   width: 20%;
+
                   &:hover {
                     background-color: red;
                   }
                 }
               }
+
               & img {
                 width: 150px;
                 height: 150px;
@@ -97,8 +107,33 @@
             }
           }
         }
-
       }
+
+      > .game-paginator-wrapper {
+        > .pagination {
+
+          .page-link.active, .active > .page-link {
+            background-color: #430202;
+            border-color: #430202;
+          }
+
+          .page-link.disabled, .disabled > .page-link {
+            color: gray;
+            cursor: not-allowed;
+          }
+
+          .page-link {
+            color: black;
+            cursor: pointer;
+
+            &:hover {
+              color: red;
+            }
+
+          }
+        }
+      }
+
     }
   }
 }

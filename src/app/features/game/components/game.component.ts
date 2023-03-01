@@ -5,6 +5,8 @@ import { Subject, takeUntil, tap } from 'rxjs';
 import { GameService } from '../services';
 import { ToastrService } from 'ngx-toastr';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { Options } from '../../../shared/models';
+import { GamePage } from '../models/game';
 
 @Component({
   selector: 'app-game',
@@ -13,14 +15,28 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 })
 export class GameComponent implements OnInit, OnDestroy {
 
+  games: Game[] = [];
+  gamePage: GamePage = {
+    content: [],
+    filteredSize: 0,
+    filteredPages: 0,
+    totalElements: 0,
+  };
+
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+  // Pagination
+  options: Options = {
+    page: 0,
+    pageSize: 9,
+  }
+
+  // Form controls
   form!: FormGroup;
   submitted = true;
   loading = false;
-  games: Game[] = [];
   showFilter = true;
   filterIcon = faFilter;
-
-  destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +45,50 @@ export class GameComponent implements OnInit, OnDestroy {
   ) {
     this.createForm();
   }
+
+  searchGamesPaginated(): void {
+    this.service.searchGamesPaginated(this.form?.value, this.options)
+      .pipe(tap(() => {
+          this.loading = true;
+        }),
+        takeUntil(this.destroy$),
+      )
+      .subscribe({
+        next: (result: GamePage) => {
+          this.gamePage = result;
+          this.loading = false;
+        },
+        error: () => {
+          this.toastr.error('Ha ocurrido un error al buscar los juegos', 'Error en búsqueda');
+          this.loading = false;
+        },
+      });
+  }
+
+  getGames(): void {
+    this.loading = true;
+
+    this.service.getGamesPaginated(this.options)
+      .pipe(tap(() => {
+          this.loading = true;
+        }),
+        takeUntil(this.destroy$),
+      )
+      .subscribe({
+        next: (result: GamePage) => {
+          this.gamePage = result;
+          this.loading = false;
+        },
+        error: () => {
+          this.toastr.error('Ha ocurrido un error al cargar los juegos', 'Juegos');
+          this.loading = false;
+        },
+      });
+  }
+
+  /**
+   * #region  Form
+   */
 
   createForm() {
     this.form = this.fb.group({
@@ -43,23 +103,7 @@ export class GameComponent implements OnInit, OnDestroy {
     if (this.form.invalid) {
       return;
     }
-
-    this.service.searchGames(this.form?.value)
-      .pipe(tap(() => {
-          this.loading = true;
-        }),
-        takeUntil(this.destroy$),
-      )
-      .subscribe({
-        next: (result: Game[]) => {
-          this.games = result;
-          this.loading = false;
-        },
-        error: () => {
-          this.toastr.error('Ha ocurrido un error al buscar los juegos', 'Error en búsqueda');
-          this.loading = false;
-        },
-      });
+    this.searchGamesPaginated();
   }
 
   onReset() {
@@ -69,32 +113,26 @@ export class GameComponent implements OnInit, OnDestroy {
       name: null,
       description: null,
     });
-  }
 
-  private getGames(): void {
-    this.loading = true;
-
-    this.service.getGames()
-      .pipe(tap(() => {
-          this.loading = true;
-        }),
-        takeUntil(this.destroy$),
-      )
-      .subscribe({
-        next: (result: Game[]) => {
-          this.games = result;
-          this.loading = false;
-        },
-        error: () => {
-          this.toastr.error('Ha ocurrido un error al cargar los juegos', 'Juegos');
-          this.loading = false;
-        },
-      });
+    this.gamePage = {
+      content: [],
+      filteredSize: 0,
+      filteredPages: 0,
+      totalElements: 0,
+    }
   }
 
   showFilters() {
     this.showFilter = !this.showFilter;
   }
+
+  /**
+   * #endregion
+   */
+
+  /**
+   * #region  Angular lifecycle
+   */
 
   ngOnInit(): void {
     this.getGames();
@@ -104,5 +142,36 @@ export class GameComponent implements OnInit, OnDestroy {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
+
+  /**
+   * #endregion
+   */
+
+  /**
+   * #region  Paginator
+   */
+
+  arrayFromMaxNumber(max: number): number[] {
+    return Array.from({length: max}, (v, k) => k);
+  }
+
+  next() {
+    this.options.page++;
+    this.searchGamesPaginated();
+  }
+
+  to(page: number) {
+    this.options.page = page;
+    this.searchGamesPaginated();
+  }
+
+  prev() {
+    this.options.page--;
+    this.searchGamesPaginated();
+  }
+
+  /**
+   * #endregion
+   */
 
 }

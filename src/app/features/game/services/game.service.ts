@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Game, SearchGamesQuery } from '../models';
 import data from '../../../../assets/data/games.json';
+import { Options } from '../../../shared/models';
+import { GamePage } from '../models/game';
 
 @Injectable({
   providedIn: 'root',
@@ -21,11 +23,17 @@ export class GameService {
     this.games.push(...data);
   }
 
-  searchGames(query: SearchGamesQuery): Observable<Game[]> {
+  searchGamesPaginated(query: SearchGamesQuery, options: Options): Observable<GamePage> {
+    let gamePage: GamePage = {
+      content: [],
+      filteredSize: 0,
+      filteredPages: 0,
+      totalElements: 0,
+    };
     let gamesFiltered: Game[] = [];
 
     if (query.name == null && query.description == null) {
-      return this.getGames();
+      return this.getGamesPaginated(options);
     }
 
     this.games.forEach((game) => {
@@ -36,8 +44,31 @@ export class GameService {
         gamesFiltered.push(game);
       }
     });
+    let numGamesFiltered = gamesFiltered.length;
+    gamesFiltered = gamesFiltered.slice(options.page * options.pageSize, options.page * options.pageSize + options.pageSize);
 
-    return of(gamesFiltered);
+    gamePage.content = gamesFiltered;
+    gamePage.filteredSize = gamesFiltered.length;
+    gamePage.filteredPages = Math.ceil(numGamesFiltered / options.pageSize);
+    gamePage.totalElements = numGamesFiltered;
+    return of(gamePage);
+  }
+
+  getGamesPaginated(options: Options): Observable<GamePage> {
+    let gamePage: GamePage = {
+      content: [],
+      filteredSize: 0,
+      filteredPages: 0,
+      totalElements: 0,
+    };
+    let gamesFiltered: Game[] = [];
+
+    gamesFiltered = this.games.slice(options.page * options.pageSize, options.page * options.pageSize + options.pageSize);
+    gamePage.content = gamesFiltered;
+    gamePage.filteredSize = gamesFiltered.length;
+    gamePage.filteredPages = Math.ceil(this.games.length / options.pageSize);
+    gamePage.totalElements = this.games.length;
+    return of(gamePage);
   }
 
   getGames(): Observable<Game[]> {
