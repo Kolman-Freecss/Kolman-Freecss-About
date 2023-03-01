@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BackgroundType } from '../../../models/background-type';
+import { BackgroundType } from '../../../models';
 
 @Component({
   selector: 'app-background',
@@ -9,6 +9,7 @@ import { BackgroundType } from '../../../models/background-type';
 export class BackgroundComponent {
 
   @Input() background: BackgroundType = BackgroundType.Carousel;
+  @Input() imagesBackground: string[] = [];
 
   isCarouselBackground(): boolean {
     return this.background === BackgroundType.Carousel;

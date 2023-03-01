@@ -1,14 +1,8 @@
 <div class='main-wrapper'>
   <div *ngIf='isCarouselBackground()' id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/img/general-background-7.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/general-background-6.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/general-background-5.jpg" class="d-block w-100" alt="...">
+      <div *ngFor='let image of imagesBackground; let index = index' class="carousel-item" [ngClass]="{ 'active': index == 0 }">
+        <img [src]='image' class="d-block w-100" alt="Background image">
       </div>
     </div>
   </div>
