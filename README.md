@@ -2,10 +2,10 @@
 
 Built with Angular 15
 
-## Dependencies
+## Used
 
 - Bootstrap 5
-- Redux
+- Redux with NgRx
 
 ---
 
