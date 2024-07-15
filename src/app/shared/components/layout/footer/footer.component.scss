@@ -14,7 +14,7 @@
 
 .fa-brands {
   color: white;
-  > &:hover {
+  &:hover {
     color: red;
     > i.fa-github {
       -webkit-animation: fa-spin 2s infinite linear;
