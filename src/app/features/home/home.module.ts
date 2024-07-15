@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home.routing';
 import { SharedModule } from '../../shared';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxWebstorageModule } from 'ngx-webstorage';
+import { provideNgxWebstorage, withLocalStorage, withNgxWebstorageConfig, withSessionStorage } from 'ngx-webstorage';
 
 
 @NgModule({
@@ -17,9 +17,15 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
       HomeRoutingModule,
       CommonModule,
       FontAwesomeModule,
-      SharedModule,
-      NgxWebstorageModule.forRoot(),
+      SharedModule
    ],
+    providers: [
+        provideNgxWebstorage(
+          withNgxWebstorageConfig({ separator: ':', caseSensitive: true }),
+          withLocalStorage(),
+          withSessionStorage()
+	    )
+    ]
 })
 export class HomeModule {
 }
