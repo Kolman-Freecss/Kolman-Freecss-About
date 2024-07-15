@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { GAMES_PATH, HOME_PATH } from '../../../paths';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -36,9 +36,12 @@ export class NavComponent {
 
   animationState = 'rotated';
 
+  @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
+
   constructor(private route: Router) { }
 
   toggleHover() {
+    this.playHoverSound();
     this.animationState = this.animationState === 'rotated' ? 'notRotated' : 'rotated'
   }
 
@@ -48,6 +51,14 @@ export class NavComponent {
 
   isGames(): boolean {
     return this.route.url.startsWith(this.games);
+  }
+
+  playHoverSound(): void {
+    if (this.hoverSoundRef) {
+      const audio = this.hoverSoundRef.nativeElement;
+      audio.currentTime = 0;
+      audio.play();
+    }
   }
 
 }

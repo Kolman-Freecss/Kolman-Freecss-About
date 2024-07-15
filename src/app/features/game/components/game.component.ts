@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Game } from '../models';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject, takeUntil, tap } from 'rxjs';
@@ -39,6 +39,8 @@ export class GameComponent implements OnInit, OnDestroy {
   loading = false;
   showFilter = true;
   filterIcon = faFilter;
+
+  @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -170,6 +172,14 @@ export class GameComponent implements OnInit, OnDestroy {
   prev() {
     this.options.page--;
     this.searchGamesPaginated();
+  }
+
+  playHoverSound(): void {
+    if (this.hoverSoundRef) {
+      const audio = this.hoverSoundRef.nativeElement;
+      audio.currentTime = 0;
+      audio.play();
+    }
   }
 
   /**

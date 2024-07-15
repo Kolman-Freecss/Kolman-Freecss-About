@@ -10,5 +10,14 @@
     </div>
     <app-footer class='wrapper-footer'></app-footer>
   </div>
+  <div id='sound_wrapper_sticky_id'>
+    <div class='sound_wrappered_icon' *ngIf='cacheService.isSoundMuted()' (click)='muteSound()' (mouseenter)='playHoverSound();'>
+      <i class="fas fa-volume-mute fa-anim-hover fa-2x"></i>
+    </div>
+    <div class='sound_wrappered_icon' *ngIf='!cacheService.isSoundMuted()' (click)='muteSound()' (mouseenter)='playHoverSound();'>
+      <i class="fa-sharp fa-solid fa-volume-high fa-anim-hover fa-2x"></i>
+    </div>
+  </div>
+  <audio #hoverSound src='assets/audio/click_003.ogg'></audio>
 </div>
 

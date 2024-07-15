@@ -40,6 +40,20 @@
       background-color: rgba(10,15,15,0.6);
     }
   }
+  > #sound_wrapper_sticky_id {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    z-index: 999;
+    > .sound_wrappered_icon {
+      > i {
+        color: darkred;
+      }
+    }
+  }
 }
 
-
+.fa-anim-hover:hover {
+  transform: scale(1.5);
+  transition: all 0.2s ease-in-out;
+}

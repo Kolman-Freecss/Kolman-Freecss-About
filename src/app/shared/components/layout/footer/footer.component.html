@@ -1,14 +1,15 @@
 <div class='container-wrapper'>
   <div class="fa-3x icons-wrapper">
-    <a [href]='linkedin' target='_blank'>
+    <a [href]='linkedin' target='_blank' (mouseenter)='playHoverSound();'>
       <i class="fa-brands fa-linkedin-in fa-anim-hover"></i>
     </a>
-    <a [href]='github' target='_blank'>
+    <a [href]='github' target='_blank' (mouseenter)='playHoverSound();'>
       <i class="fa-brands fa-github fa-anim-hover"></i>
     </a>
-    <a [href]='youtube' target='_blank'>
+    <a [href]='youtube' target='_blank' (mouseenter)='playHoverSound();'>
       <i class="fa-brands fa-youtube fa-anim-hover"></i>
     </a>
   </div>
   <p>Sergio Martínez Román © 2023 Copyright. Todos los derechos reservados.</p>
+  <audio #hoverSound src='assets/audio/click_003.ogg'></audio>
 </div>

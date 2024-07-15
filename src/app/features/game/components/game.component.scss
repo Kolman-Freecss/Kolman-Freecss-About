@@ -41,7 +41,7 @@
         > .game-button {
           color: white;
           > &:hover {
-            color: red;
+            color: darkred;
           }
         }
       }
@@ -64,7 +64,7 @@
             width: 20vh;
 
             &:hover {
-              background-color: red;
+              background-color: darkred;
             }
           }
 
@@ -74,7 +74,7 @@
             width: 15vh;
 
             &:hover {
-              background-color: red;
+              background-color: darkred;
             }
           }
         }
@@ -92,7 +92,7 @@
           color: #430202;
 
           &:hover {
-            color: red;
+            color: darkred;
           }
         }
       }
@@ -131,7 +131,7 @@
                   width: 15vh;
 
                   &:hover {
-                    background-color: red;
+                    background-color: darkred;
                   }
                 }
               }
@@ -163,7 +163,7 @@
             cursor: pointer;
 
             &:hover {
-              color: red;
+              color: darkred;
             }
 
           }

@@ -34,14 +34,18 @@ export class HomeComponent {
   animationGithubState = 'rotated';
   animationLinkedinState = 'rotated';
 
+  @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
+
   constructor(private animationService: AnimationService) {
   }
 
   toggleGithubHover() {
+    this.playHoverSound();
     this.animationGithubState = this.animationGithubState === 'rotated' ? 'notRotated' : 'rotated'
   }
 
   toggleLinkedinHover() {
+    this.playHoverSound();
     this.animationLinkedinState = this.animationLinkedinState === 'rotated' ? 'notRotated' : 'rotated'
   }
 
@@ -58,6 +62,14 @@ export class HomeComponent {
   public onMouseLeaveWrapper() {
     console.log('mouse leave wrapper');
     this.mouseHoverWrapper = false;
+  }
+
+  playHoverSound(): void {
+    if (this.hoverSoundRef) {
+      const audio = this.hoverSoundRef.nativeElement;
+      audio.currentTime = 0;
+      audio.play();
+    }
   }
 
 }

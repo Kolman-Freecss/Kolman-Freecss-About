@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit, OnChanges {
   showHeader = true;
   @Input() mouseHoverWrapper = false;
 
+  @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
+
   constructor(private animationService: AnimationService,
               private localStorage: LocalStorageService
               ) {
@@ -70,6 +72,14 @@ export class HeaderComponent implements OnInit, OnChanges {
       this.showHeaders();
     } else {
       this.hideHeaders();
+    }
+  }
+
+  playHoverSound(): void {
+    if (this.hoverSoundRef) {
+      const audio = this.hoverSoundRef.nativeElement;
+      audio.currentTime = 0;
+      audio.play();
     }
   }
 

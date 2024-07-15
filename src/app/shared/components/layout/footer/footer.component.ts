@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -12,8 +12,16 @@ export class FooterComponent  {
   github = 'https://github.com/Kolman-Freecss';
   youtube = 'https://www.youtube.com/@Kolman-Freecss/videos';
 
-  youtubeIcon = faYoutube;
+  @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
   constructor() { }
+
+  playHoverSound(): void {
+    if (this.hoverSoundRef) {
+      const audio = this.hoverSoundRef.nativeElement;
+      audio.currentTime = 0;
+      audio.play();
+    }
+  }
 
 }

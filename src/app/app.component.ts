@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BackgroundType } from './shared/models';
 import { NavigationEnd, Router } from '@angular/router';
+import { CacheService } from './core/config/cache.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,11 @@ export class AppComponent implements OnInit {
   background: BackgroundType = BackgroundType.Video;
   imagesBackground: string[] = [];
 
+  @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
+
   constructor(
     private router: Router,
+    protected cacheService: CacheService,
   ) {
   }
 
@@ -50,4 +54,17 @@ export class AppComponent implements OnInit {
       'assets/img/BackgroundMenu2.PNG'
       ];
   }
+
+  muteSound(): void {
+    this.cacheService.toggleSoundMuted();
+  }
+
+  playHoverSound(): void {
+    if (this.hoverSoundRef) {
+      const audio = this.hoverSoundRef.nativeElement;
+      audio.currentTime = 0;
+      audio.play();
+    }
+  }
+
 }

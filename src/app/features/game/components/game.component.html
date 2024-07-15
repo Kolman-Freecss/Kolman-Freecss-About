@@ -6,7 +6,7 @@
         <h1>¡Investiga los juegos que he realizado aquí abajo!</h1>
       </div>
       <div class='game-introduction-buttons-wrapper fa-3x'>
-        <a class='introduction-button' appScrollAnchor="game-table">
+        <a class='introduction-button' appScrollAnchor="game-table" (mouseenter)='playHoverSound();'>
           <div class='fa-beat-fade'>
             <fa-icon [icon]='arrow'></fa-icon>
           </div>
@@ -24,7 +24,7 @@
 
       <div class='filter-icon-wrapper fa-2x' (click)='showFilters()'>
         <h4>Filtros</h4>
-        <fa-icon [icon]="filterIcon"></fa-icon>
+        <fa-icon [icon]="filterIcon" (mouseenter)='playHoverSound();'></fa-icon>
       </div>
 
       <form *ngIf='showFilter' [formGroup]='form' (ngSubmit)='onSubmit()' class='game-form-wrapper'>
@@ -44,8 +44,8 @@
         </div>
 
         <div class='filter-buttons-wrapper'>
-          <button type='submit' class='btn btn-outline-danger' id='game-submit-button'>Buscar</button>
-          <button type='button' (click)='onReset()' class='btn btn-danger' id='game-reset-button'>
+          <button type='submit' class='btn btn-outline-danger' id='game-submit-button' (mouseenter)='playHoverSound();'>Buscar</button>
+          <button type='button' (click)='onReset()' class='btn btn-danger' id='game-reset-button' (mouseenter)='playHoverSound();'>
             Borrar
           </button>
         </div>
@@ -65,7 +65,7 @@
               <div class='card-body p-4'>
                 <h3 class='mb-0'>{{game.name}}</h3>
                 <p class='card-text mb-auto'>{{game.description}}</p>
-                <a [href]='game.link' class="btn btn-danger" target='_blank'>Source!</a>
+                <a [href]='game.link' class="btn btn-danger" target='_blank' (mouseenter)='playHoverSound();'>Source!</a>
               </div>
               <div class='p-4'>
                 <img [src]='game.image' alt='Imagen de juego'>
@@ -78,19 +78,21 @@
       <nav *ngIf='gamePage.content.length > 0' class='game-paginator-wrapper'>
         <ul class="pagination">
           <li id="prev" class="page-item" [ngClass]="{ 'disabled': options.page < 1 }">
-            <a class="page-link" (click)="prev()">Previous</a>
+            <a class="page-link" (click)="prev()" (mouseenter)='playHoverSound();'>Previous</a>
           </li>
           <ng-container *ngIf="gamePage.content">
             <li class="page-item" *ngFor="let number of arrayFromMaxNumber(gamePage.filteredPages)" [ngClass]="{ 'active': options.page === number }">
-              <a class="page-link" (click)="to(number)">{{number}}</a>
+              <a class="page-link" (click)="to(number)" (mouseenter)='playHoverSound();'>{{number}}</a>
             </li>
           </ng-container>
           <li id="next" class="page-item" [ngClass]="{ 'disabled': options.page >= gamePage.filteredPages - 1}">
-            <a class="page-link" (click)="next()" disabled="true">Next</a>
+            <a class="page-link" (click)="next()" disabled="true" (mouseenter)='playHoverSound();'>Next</a>
           </li>
         </ul>
       </nav>
 
     </section>
   </div>
+
+  <audio #hoverSound src='assets/audio/click_003.ogg'></audio>
 </div>
