@@ -40,7 +40,7 @@
         cursor: pointer;
         > .game-button {
           color: white;
-          > &:hover {
+          &:hover {
             color: darkred;
           }
         }

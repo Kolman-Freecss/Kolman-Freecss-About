@@ -6,6 +6,7 @@ import { SharedModule } from '../../shared';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideNgxWebstorage, withLocalStorage, withNgxWebstorageConfig, withSessionStorage } from 'ngx-webstorage';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { provideNgxWebstorage, withLocalStorage, withNgxWebstorageConfig, withSe
       HomeRoutingModule,
       CommonModule,
       FontAwesomeModule,
-      SharedModule
+      SharedModule,
+      TranslateModule,
    ],
     providers: [
         provideNgxWebstorage(

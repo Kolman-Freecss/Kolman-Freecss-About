@@ -5,9 +5,20 @@
 }
 
 .navbar {
+  display: flex;
   align-items: flex-start;
   > .container-fluid {
     justify-content: space-between;
+    #tabs-wrapper {
+      justify-content: center;
+    }
+    #languages-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      > div {
+        margin-right: 30%;
+      }
+    }
   }
 }
 
@@ -28,4 +39,18 @@
 
 .fa-icon {
   animation: rotateAnimation infinite;
+}
+
+.card-lang-top {
+  width: 48px;
+  height: 48px;
+  opacity: 0.3;
+  .selected {
+    opacity: 1;
+  }
+  &:hover {
+    transform: scale(1.2);
+    opacity: 0.6;
+    cursor: pointer;
+  }
 }

@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BackgroundType } from './shared/models';
 import { NavigationEnd, Router } from '@angular/router';
 import { CacheService } from './core/config/cache.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cacheService.setLangSelected(); // First time, set the default language
     this.setHomeImageBackground();
     this.setCarouselBackground(BackgroundType.Video);
     this.router.events.subscribe((event) => {

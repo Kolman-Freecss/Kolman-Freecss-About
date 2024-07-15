@@ -12,6 +12,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared';
 import { StoreModule } from '@ngrx/store';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './locale/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -28,9 +35,18 @@ import { StoreModule } from '@ngrx/store';
     FontAwesomeModule,
     BrowserAnimationsModule,
     SharedModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
