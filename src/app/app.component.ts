@@ -10,7 +10,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class AppComponent implements OnInit {
 
   title = 'Kolman-Freecss';
-  background: BackgroundType = BackgroundType.Carousel;
+  background: BackgroundType = BackgroundType.Video;
   imagesBackground: string[] = [];
 
   constructor(
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.setHomeImageBackground();
-    this.setCarouselBackground(BackgroundType.Carousel);
+    this.setCarouselBackground(BackgroundType.Video);
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/game') {

@@ -1,9 +1,15 @@
 .main-wrapper {
   height: 100%;
-  position: absolute;
+  position: fixed;
   flex-grow: 1;
   display: flex;
   width: 100%;
+  > #video_wrapper{
+    > #video_id {
+      opacity: 0.3;
+      filter: brightness(0.8);
+    }
+  }
   > #carouselAutoplaying {
     width: 100%;
     > .carousel-inner {

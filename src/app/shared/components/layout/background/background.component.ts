@@ -8,7 +8,7 @@ import { BackgroundType } from '../../../models';
 })
 export class BackgroundComponent {
 
-  @Input() background: BackgroundType = BackgroundType.Carousel;
+  @Input() background: BackgroundType = BackgroundType.Video;
   @Input() imagesBackground: string[] = [];
 
   isCarouselBackground(): boolean {
