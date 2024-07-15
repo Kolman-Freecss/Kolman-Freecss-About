@@ -11,6 +11,7 @@ import { BackgroundComponent } from './shared/components/layout/background';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SharedModule } from './shared';
     GameModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent],
