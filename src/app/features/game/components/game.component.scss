@@ -53,7 +53,6 @@
       gap: 20px;
       justify-content: center;
       text-align: -webkit-center;
-      background-color: rgba(18,15,17,0.45);
       padding: 2% 0%;
 
       > h1 {
@@ -68,6 +67,9 @@
         //height: 40rem;
         gap: 20px;
         justify-content: center;
+        .carousel-control-prev, .carousel-control-next {
+          z-index: 99;
+        }
         > .game-highlight-card-wrapper {
           width: 100%;
         }
@@ -77,27 +79,61 @@
           justify-content: center;
           flex-direction: column;
           gap: 10px;
+          position: relative;
+          z-index: 2;
+          > .overlay {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 1;
+          }
+          > .top {
+            top: 0;
+            background: linear-gradient(to bottom, rgb(16 15 15) 0%, rgba(0, 0, 0, 0) 100%)
+          }
+          > .bottom {
+            bottom: 0;
+            background: linear-gradient(to top, rgba(16 15 15) 0%, rgba(0,0,0,0) 100%);
+          }
+
           //align-items: center;
           > img {
             filter: brightness(0.7);
             width: 100%;
             height: 60rem;
           }
-        .game-highlight-game-card-title {
-          color: white;
-        }
-        .game-highlight-game-card-description {
-          color: white;
-        }
-        .game-highlight-game-card-button {
-          background-color: #430202;
-          border: none;
-          width: 15vh;
-          margin: 10px;
-          &:hover {
-            background-color: #a22b1c;
+          .game-highlight-game-card-title {
+            color: white;
           }
-        }
+          .game-highlight-game-card-description {
+            color: white;
+          }
+          .game-highlight-game-card-button {
+            background-color: #430202;
+            border: none;
+            width: 15vh;
+            font-size: 20px;
+            margin: 10px;
+            &:hover {
+              background-color: #a22b1c;
+            }
+          }
+          .hover-clickable-area {
+            position: absolute;
+            width: 100%;
+            height: 60%;
+            z-index: 98;
+          }
+          .game-highlight-game-card-video {
+            position: absolute;
+            bottom: 0;
+            object-fit: fill;
+            left: 0;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
@@ -106,7 +142,7 @@
       flex-direction: column;
       justify-content: flex-start;
       //background-image: url('../../../../assets/img/general-background-7.jpg');
-      background-color: rgba(30,15,20,0.3);
+      background-color: rgba(18,15,20,0.3);
 
       > .game-form-wrapper {
         > .filter-buttons-wrapper {

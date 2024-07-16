@@ -105,6 +105,34 @@ export class GameComponent implements OnInit, OnDestroy {
       });
   }
 
+  playVideo(id: string, videoP: string): void {
+    if (!videoP || videoP.length === 0) {
+      return;
+    }
+    const video = document.getElementById(id) as HTMLVideoElement;
+    if (video) {
+      video.play();
+    }
+  }
+
+  pauseVideo(id: string, videoP: string): void {
+    if (!videoP || videoP.length === 0) {
+      return;
+    }
+    const video = document.getElementById(id) as HTMLVideoElement;
+    if (video) {
+      video.pause();
+    }
+  }
+
+  isVideoPlaying(id: string, videoP: string): boolean {
+    if (!videoP || videoP.length === 0) {
+      return false;
+    }
+    const video = document.getElementById(id) as HTMLVideoElement;
+    return video ? !video.paused : false;
+  }
+
   /**
    * #region  Form
    */
