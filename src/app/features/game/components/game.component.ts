@@ -1,13 +1,14 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Game } from '../models';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Subject, takeUntil, tap } from 'rxjs';
+import { Observable, Subject, takeUntil, tap } from 'rxjs';
 import { GameService } from '../services';
 import { ToastrService } from 'ngx-toastr';
 import { faAnglesDown, faFilter } from '@fortawesome/free-solid-svg-icons';
-import { Options } from '../../../shared/models';
+import { HighlightGame, Options } from '../../../shared/models';
 import { GamePage } from '../models/game';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-game',
@@ -40,6 +41,8 @@ export class GameComponent implements OnInit, OnDestroy {
   showFilter = true;
   filterIcon = faFilter;
 
+  highlightGames : HighlightGame[] = [];
+
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
   imagesBackground: string[] = [
@@ -52,8 +55,14 @@ export class GameComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private service: GameService,
     private toastr: ToastrService,
+    private firestore: Firestore
   ) {
     this.createForm();
+  }
+
+  getHighlightGames(): Observable<HighlightGame[]> {
+    const highlightRef = collection(this.firestore, 'highlightGames');
+    return collectionData(highlightRef, {idField: 'id'}) as Observable<HighlightGame[]>;
   }
 
   searchGamesPaginated(): void {
@@ -146,6 +155,9 @@ export class GameComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getGames();
+    this.getHighlightGames().subscribe((data) => {
+      this.highlightGames = data;
+    });
   }
 
   ngOnDestroy(): void {

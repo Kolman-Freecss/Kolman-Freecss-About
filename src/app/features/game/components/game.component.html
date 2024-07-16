@@ -19,15 +19,15 @@
       </div>
       <div class='game-highlight-games-cards-wrapper'>
         <div class='game-highlight-card-wrapper'>
-          <div id="carouselAutoplaying" class="carousel slide w-50" data-bs-ride="carousel">
+          <div id="carouselAutoplaying" class="carousel slide w-50 carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
-              <div *ngFor='let image of imagesBackground; let index = index' class="carousel-item game-highlight-game-card" [ngClass]="{ 'active': index == 0 }">
-                <img [src]='image' class="d-block w-100" alt="Background image">
+              <div *ngFor='let hG of this.highlightGames; let index = index' class="carousel-item game-highlight-game-card" [ngClass]="{ 'active': index == 0 }">
+                <img [src]='hG.image' class="d-block w-100" alt="No image found!">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5 class="game-highlight-game-card-title">Slide {{index + 1}}</h5>
-                  <p class='game-highlight-game-card-description'>{{ "game_highlight_games_description" | translate }}</p>
-                  <a class="btn btn-danger game-highlight-game-card-button" href="#" (mouseenter)='playHoverSound();'>{{ "game_highlight_games_link_button" | translate }}</a>
-                  <a class="btn btn-danger game-highlight-game-card-button" href="#" (mouseenter)='playHoverSound();'>{{ "game_highlight_games_source_button" | translate }}</a>
+                  <h3 *ngIf='hG.title' class="game-highlight-game-card-title">{{ hG.title }}</h3>
+                  <h6 *ngIf='hG.description' class='game-highlight-game-card-description'>{{ hG.description }}</h6>
+                  <a *ngIf='hG.link' class="btn btn-danger game-highlight-game-card-button" [href]='hG.link' (mouseenter)='playHoverSound();'>{{ "game_highlight_games_link_button" | translate }}</a>
+                  <a *ngIf='hG.source' class="btn btn-danger game-highlight-game-card-button" [href]='hG.source' (mouseenter)='playHoverSound();'>{{ "game_highlight_games_source_button" | translate }}</a>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@
                 <a [href]='game.link' class="btn btn-danger" target='_blank' (mouseenter)='playHoverSound();'>{{ "game_results_button_source" | translate }}</a>
               </div>
               <div class='p-4'>
-                <img [src]='game.image' alt='Imagen de juego'>
+                <img [src]='game.image' alt='No image found!'>
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Kolman-Freecss": {
+    "kolman-freecss": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -82,10 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Kolman-Freecss:build:production"
+              "buildTarget": "kolman-freecss:build:production"
             },
             "development": {
-              "buildTarget": "Kolman-Freecss:build:development"
+              "buildTarget": "kolman-freecss:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Kolman-Freecss:build"
+            "buildTarget": "kolman-freecss:build"
           }
         },
         "test": {

@@ -65,10 +65,17 @@
         gap: 20px;
         justify-content: center;
         .game-highlight-game-card {
-        display: inherit;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
+          //display: flex;
+          align-items: stretch;
+          justify-content: center;
+          flex-direction: column;
+          gap: 10px;
+          //align-items: center;
+          > img {
+            filter: brightness(0.7);
+            width: 100%;
+            height: 100%;
+          }
         .game-highlight-game-card-title {
           color: white;
         }

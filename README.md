@@ -1,11 +1,18 @@
 # Kolman Freecss
 
-Built with Angular 15
+Built with Angular 18
 
 ## Used
 
 - Bootstrap 5
+- Firebase
 - Redux with NgRx
+
+## Troubleshoting
+
+### Firebase
+
+- https://stackoverflow.com/questions/52891500/http-error-401-while-setting-up-firebase-cloud-functions-for-android-project
 
 ---
 

@@ -43,3 +43,7 @@ testem.log
 Thumbs.db
 /.vscode/
 .ignore.bak
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

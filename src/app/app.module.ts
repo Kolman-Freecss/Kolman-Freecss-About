@@ -16,6 +16,10 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SanitizeHtmlPipe } from './shared/pipes/sanitize-html.pipe';
+import { provideFirebaseApp, initializeApp as initializeApp_alias } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { initializeApp } from 'firebase/app';
+import { environment, firebaseConfig } from '../environments/environment';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/locale/', '.json');
@@ -48,7 +52,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     SanitizeHtmlPipe,
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
   bootstrap: [AppComponent],
 })
