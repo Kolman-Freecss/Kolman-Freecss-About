@@ -13,7 +13,37 @@
         </a>
       </div>
     </section>
-    <section class='game-table-wrapper' appScrollSection="game-table">
+    <section class='game_highlight_games_wrapper' appScrollSection="game-table">
+      <div class='game-highlight-games-title-wrapper'>
+        <h1>{{ "game_highlight_games_title" | translate }}</h1>
+      </div>
+      <div class='game-highlight-games-cards-wrapper'>
+        <div class='game-highlight-card-wrapper'>
+          <div id="carouselAutoplaying" class="carousel slide w-50" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div *ngFor='let image of imagesBackground; let index = index' class="carousel-item game-highlight-game-card" [ngClass]="{ 'active': index == 0 }">
+                <img [src]='image' class="d-block w-100" alt="Background image">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 class="game-highlight-game-card-title">Slide {{index + 1}}</h5>
+                  <p class='game-highlight-game-card-description'>{{ "game_highlight_games_description" | translate }}</p>
+                  <a class="btn btn-danger game-highlight-game-card-button" href="#" (mouseenter)='playHoverSound();'>{{ "game_highlight_games_link_button" | translate }}</a>
+                  <a class="btn btn-danger game-highlight-game-card-button" href="#" (mouseenter)='playHoverSound();'>{{ "game_highlight_games_source_button" | translate }}</a>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='game-table-wrapper'>
 
       <div *ngIf='loading' class='loading-window'>
         <div class='alert alert-info lead text-center'>

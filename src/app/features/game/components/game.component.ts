@@ -42,6 +42,12 @@ export class GameComponent implements OnInit, OnDestroy {
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
+  imagesBackground: string[] = [
+      'assets/img/general-background-7.jpg',
+      'assets/img/general-background-6.jpg',
+      'assets/img/general-background-5.jpg',
+      ];
+
   constructor(
     private fb: FormBuilder,
     private service: GameService,

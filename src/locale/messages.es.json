@@ -56,5 +56,8 @@
   "game_results_button_source": "Fuente",
   "game_results_pagination_prev": "Anterior",
   "game_results_pagination_next": "Siguiente",
+  "game_highlight_games_title": "Destacados",
+  "game_highlight_games_link_button": "Link",
+  "game_highlight_games_source_button": "Fuente",
   "footer_rights": "Todos los derechos reservados"
 }

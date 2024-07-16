@@ -47,6 +47,47 @@
       }
     }
 
+    > .game_highlight_games_wrapper {
+      display: inherit;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+      text-align: -webkit-center;
+      background-color: rgba(18,15,17,0.45);
+      > h1 {
+        color: white;
+        font-size: calc(1rem + 1.5vw);
+      }
+      > .game-highlight-games-cards-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        .game-highlight-game-card {
+        display: inherit;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        .game-highlight-game-card-title {
+          color: white;
+        }
+        .game-highlight-game-card-description {
+          color: white;
+        }
+        .game-highlight-game-card-button {
+          background-color: #430202;
+          border: none;
+          width: 15vh;
+          margin: 10px;
+          &:hover {
+            background-color: #a22b1c;
+          }
+        }
+        }
+      }
+    }
+
     > .game-table-wrapper {
       flex-direction: column;
       justify-content: flex-start;
