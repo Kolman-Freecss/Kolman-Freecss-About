@@ -11,6 +11,7 @@ export class FooterComponent  {
   linkedin = 'https://www.linkedin.com/in/sergiomartinezroman/';
   github = 'https://github.com/Kolman-Freecss';
   youtube = 'https://www.youtube.com/@Kolman-Freecss/videos';
+  itch = 'https://kolman-freecss.itch.io/';
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 

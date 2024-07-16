@@ -2,16 +2,26 @@
   <div class="container-fluid fa-2x">
     <img src="assets/img/Logo_Krodun.png" class="card-img-top" alt="...">
     <div id='tabs-wrapper'>
+      <div [ngClass]="{'hidden': !isGames()}" class='game-introduction-buttons-wrapper fa-xs'>
+        <div class='fa-beat-fade' (mouseenter)='playHoverSound();'>
+          <fa-icon [icon]='arrowLeft'></fa-icon>
+        </div>
+      </div>
       <a *ngIf='isGames()' [routerLink]="home">
-        <div [@rotateAnimation]="animationState" class='fa-beat-fade' (mouseenter)='toggleHover()'>
+        <div [@rotateAnimation]="animationState" class='fa-beat-fade fa-lg' (mouseenter)='toggleHover()'>
           <fa-icon [icon]="homeIcon" ></fa-icon>
         </div>
       </a>
       <a *ngIf='isHome()' [routerLink]="games">
-        <div [@rotateAnimation]="animationState" class='fa-beat-fade' (mouseenter)='toggleHover()'>
+        <div [@rotateAnimation]="animationState" class='fa-beat-fade fa-lg' (mouseenter)='toggleHover()'>
           <fa-icon [icon]="gameIcon" ></fa-icon>
         </div>
       </a>
+      <div [ngClass]="{'hidden': !isHome()}" class='game-introduction-buttons-wrapper fa-xs'>
+        <div class='fa-beat-fade' (mouseenter)='playHoverSound();'>
+          <fa-icon [icon]='arrowRight'></fa-icon>
+        </div>
+      </div>
     </div>
     <div id='languages-wrapper'>
       <div (click)='changeLanguage("es")' (mouseenter)='playHoverSound()' #flag_es>

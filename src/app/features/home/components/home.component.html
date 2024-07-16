@@ -23,6 +23,11 @@
               <fa-icon [icon]=linkedinIcon></fa-icon>
             </div>
           </a>
+          <a [href]='itch' target='_blank' class='introduction-button'>
+            <div [@rotateAnimation]='animationItchState' class='fa-beat-fade' (mouseenter)='toggleItchHover()'>
+              <fa-icon [icon]=itchIcon></fa-icon>
+            </div>
+          </a>
         </div>
       </section>
       <section class='home-presentation-wrapper' id='home-presentation-id' appScrollSection="two">
@@ -37,16 +42,13 @@
           <li>
             <strong>{{ "home_presentation_3" | translate}}</strong>
             <span class='badge bg-secondary'>Unity</span>
-            <span class='badge bg-secondary'>C#</span>
-            <span class='badge bg-secondary'>C++</span>
-            <span class='badge bg-secondary'>Java</span>
-            <span class='badge bg-secondary'>Javascript</span>
+            <span class='badge bg-secondary'>Unreal</span>
+            <span class='badge bg-secondary'>Godot</span>
           </li>
           <li>
             <strong>{{ "home_presentation_4" | translate}}</strong>
             <span class='badge bg-secondary'>Angular</span>
             <span class='badge bg-secondary'>Spring</span>
-            <span class='badge bg-secondary'>Typescript</span>
             <span class='badge bg-secondary'>MEAN Stack</span>
             <span class='badge bg-secondary'>J2EE</span>
             <span class='badge bg-secondary'>JPA Hibernate</span>
@@ -62,34 +64,27 @@
           </li>
           <li>
             <strong>{{ "home_presentation_5" | translate}}</strong>
-            <span class='badge bg-secondary'>Java</span>
-            <span class='badge bg-secondary'>Typescript</span>
-            <span class='badge bg-secondary'>Python</span>
-            <span class='badge bg-secondary'>C#</span>
             <span class='badge bg-secondary'>C++</span>
+            <span class='badge bg-secondary'>C#</span>
+            <span class='badge bg-secondary'>Java</span>
+            <span class='badge bg-secondary'>Python</span>
+            <span class='badge bg-secondary'>Lua</span>
+            <span class='badge bg-secondary'>Typescript</span>
           </li>
           <li>
             <strong>{{ "home_presentation_6" | translate}}</strong>
             <span class='badge bg-secondary'>SCRUM</span>
             <span class='badge bg-secondary'>Azure</span>
+            <span class='badge bg-secondary'>Linux</span>
+            <span class='badge bg-secondary'>Android</span>
+            <span class='badge bg-secondary'>DDBB</span>
           </li>
         </ul>
-        <p>
-          {{ "home_presentation_7" | translate}}
-        </p>
-        <p>
-          {{ "home_presentation_8" | translate}}
-        </p>
-        <p>
-          {{ "home_presentation_9" | translate}}
-        </p>
-        <p>
-           {{ "home_presentation_10" | translate}}
-        </p>
-        <p>
-          {{ "home_presentation_11" | translate}}
-        </p>
-        <p> {{ "home_presentation_12" | translate}} </p>
+        <p [innerHTML]=" 'home_presentation_7' | translate | sanitizeHtml"></p>
+        <p [innerHTML]=" 'home_presentation_8' | translate | sanitizeHtml"></p>
+        <p [innerHTML]=" 'home_presentation_9' | translate | sanitizeHtml"></p>
+        <p [innerHTML]=" 'home_presentation_11' | translate | sanitizeHtml"></p>
+        <p [innerHTML]=" 'home_presentation_12' | translate | sanitizeHtml"></p>
         <p [innerHTML]="'home_presentation_13' | translate | sanitizeHtml"></p>
       </section>
       <section class='home-education-wrapper' id='home-education-id' appScrollSection="three">

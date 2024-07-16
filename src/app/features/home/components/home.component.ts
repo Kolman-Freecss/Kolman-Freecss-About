@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { GAMES_PATH } from '../../../shared/paths';
 import { AnimationService } from '../../../shared/services/animation.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faItchIo, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { DomSanitizer } from '@angular/platform-browser';
 
 const rotateAnimation = trigger('rotateAnimation', [
@@ -28,12 +28,15 @@ export class HomeComponent {
 
   linkedin = 'https://www.linkedin.com/in/sergiomartinezroman/';
   github = 'https://github.com/Kolman-Freecss';
+  itch = 'https://kolman-freecss.itch.io/';
 
   githubIcon = faGithub;
   linkedinIcon = faLinkedinIn;
+  itchIcon = faItchIo;
 
   animationGithubState = 'rotated';
   animationLinkedinState = 'rotated';
+  animationItchState = 'rotated';
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
@@ -50,6 +53,11 @@ export class HomeComponent {
   toggleLinkedinHover() {
     this.playHoverSound();
     this.animationLinkedinState = this.animationLinkedinState === 'rotated' ? 'notRotated' : 'rotated'
+  }
+
+  toggleItchHover() {
+    this.playHoverSound();
+    this.animationItchState = this.animationItchState === 'rotated' ? 'notRotated' : 'rotated'
   }
 
   @HostListener('document:scroll', ['$event'])

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@ang
 import { GAMES_PATH, HOME_PATH } from '../../../paths';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { faGamepad, faPortrait } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft, faAnglesRight, faGamepad, faPortrait } from '@fortawesome/free-solid-svg-icons';
 import { CacheService } from '../../../../core/config/cache.service';
 import { Subscription } from 'rxjs';
 
@@ -37,6 +37,9 @@ export class NavComponent implements OnDestroy, AfterViewInit {
   gameIcon = faGamepad;
 
   animationState = 'rotated';
+
+  arrowLeft = faAnglesLeft;
+  arrowRight = faAnglesRight;
 
   langSub: Subscription;
   @ViewChild('flag_es') flagEs: ElementRef<HTMLImageElement> | undefined;

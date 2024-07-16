@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 a {
-  color: darkred;
+  color: #a22b1c;
   text-decoration: none;
   &:hover {
     color: rgb(133 0 11 / 96%);
@@ -22,4 +22,9 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: #430202;
   border-radius: 15pt;
+}
+
+.highlight_word_kolman {
+  color: #a22b1c;
+  font-weight: bold;
 }
