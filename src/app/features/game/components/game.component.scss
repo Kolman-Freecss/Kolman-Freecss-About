@@ -12,7 +12,7 @@
     > * {
       display: inherit;
       justify-content: inherit;
-      padding: 7%;
+      padding: 4%;
     }
 
     > .game-introduction-wrapper {
@@ -54,6 +54,8 @@
       justify-content: center;
       text-align: -webkit-center;
       background-color: rgba(18,15,17,0.45);
+      padding: 2% 0%;
+
       > h1 {
         color: white;
         font-size: calc(1rem + 1.5vw);
@@ -62,8 +64,13 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        width: 100%;
+        //height: 40rem;
         gap: 20px;
         justify-content: center;
+        > .game-highlight-card-wrapper {
+          width: 100%;
+        }
         .game-highlight-game-card {
           //display: flex;
           align-items: stretch;
@@ -74,7 +81,7 @@
           > img {
             filter: brightness(0.7);
             width: 100%;
-            height: 100%;
+            height: 60rem;
           }
         .game-highlight-game-card-title {
           color: white;

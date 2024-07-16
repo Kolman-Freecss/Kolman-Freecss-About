@@ -19,9 +19,9 @@
       </div>
       <div class='game-highlight-games-cards-wrapper'>
         <div class='game-highlight-card-wrapper'>
-          <div id="carouselAutoplaying" class="carousel slide w-50 carousel-fade" data-bs-ride="carousel">
+          <div id="carouselAutoplaying" class="carousel slide w-100 carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
-              <div *ngFor='let hG of this.highlightGames; let index = index' class="carousel-item game-highlight-game-card" [ngClass]="{ 'active': index == 0 }">
+              <div *ngFor='let hG of this.highlightGames; let index = index' class="carousel-item game-highlight-game-card" [ngClass]="{ 'active': index == 0 }" data-bs-interval="10000">
                 <img [src]='hG.image' class="d-block w-100" alt="No image found!">
                 <div class="carousel-caption d-none d-md-block">
                   <h3 *ngIf='hG.title' class="game-highlight-game-card-title">{{ hG.title }}</h3>
