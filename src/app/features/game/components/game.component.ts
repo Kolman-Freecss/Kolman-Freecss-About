@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Game } from '../models';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, Subject, takeUntil, tap } from 'rxjs';
@@ -7,28 +7,21 @@ import { ToastrService } from 'ngx-toastr';
 import { faAnglesDown, faFilter } from '@fortawesome/free-solid-svg-icons';
 import { HighlightGame, Options } from '../../../shared/models';
 import { GamePage } from '../models/game';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+
+const fadeInOut = trigger('fadeInOut', [
+  state ('shown', style({ opacity: 1 })),
+  state ('hidden', style({ opacity: 0 })),
+  transition('shown => hidden', [animate('0.5s ease-out')]),
+  transition('hidden => shown', [animate('0.5s ease-in')]),
+]);
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-  animations: [
-    trigger('fadeImg', [
-      state('fadeInImg', style({ opacity: 1 })),
-      state('fadeOutImg', style({ opacity: 0 })),
-      transition('fadeInImg => fadeOutImg', animate('500ms ease-out')),
-      transition('fadeOutImg => fadeInImg', animate('500ms ease-in'))
-    ]),
-    trigger('fadeVideo', [
-      state('fadeInImg', style({ opacity: 1 })),
-      state('fadeOutImg', style({ opacity: 0 })),
-      transition('fadeInImg => fadeOutImg', animate('500ms ease-out')),
-      transition('fadeOutImg => fadeInImg', animate('500ms ease-in'))
-    ])
-  ]
+  animations: [fadeInOut],
 })
 export class GameComponent implements OnInit, OnDestroy {
 
@@ -58,15 +51,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
   highlightGames : HighlightGame[] = [];
 
-  @HostBinding('@fadeImg') fadeImg = 'fadeInImg';
-  @HostBinding('@fadeVideo') fadeVideo = 'fadeOutImg';
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
-
-  imagesBackground: string[] = [
-      'assets/img/general-background-7.jpg',
-      'assets/img/general-background-6.jpg',
-      'assets/img/general-background-5.jpg',
-      ];
 
   constructor(
     private fb: FormBuilder,
@@ -128,8 +113,7 @@ export class GameComponent implements OnInit, OnDestroy {
     }
     const video = document.getElementById(id) as HTMLVideoElement;
     if (video) {
-      this.fadeImg = 'fadeOutImg';
-      this.fadeVideo = 'fadeInImg';
+      console.log('start video');
       video.play();
     }
   }
@@ -140,8 +124,7 @@ export class GameComponent implements OnInit, OnDestroy {
     }
     const video = document.getElementById(id) as HTMLVideoElement;
     if (video) {
-      this.fadeImg = 'fadeInImg';
-      this.fadeVideo = 'fadeOutImg';
+      console.log('pause video');
       video.pause();
     }
   }
@@ -151,6 +134,10 @@ export class GameComponent implements OnInit, OnDestroy {
       return false;
     }
     const video = document.getElementById(id) as HTMLVideoElement;
+    if (!video) {
+      return false;
+    }
+    console.log('!video.paused', !video.paused);
     return video ? !video.paused : false;
   }
 

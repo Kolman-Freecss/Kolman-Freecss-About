@@ -32,12 +32,13 @@
                 </div>
                 <div class='overlay top'></div>
                 <img
-                  [@fadeImg]='fadeImg'
+                  [@fadeInOut]='isVideoPlaying(hG.id + "video", hG.video) ? "hidden" : "shown"'
                   [src]='hG.image'
                   class='d-block w-100'
                   alt='No image found!'>
                 <video
-                  [@fadeVideo]='fadeVideo'
+                  [@fadeInOut]='isVideoPlaying(hG.id + "video", hG.video) ? "shown" : "hidden"'
+                  [style]='isVideoPlaying(hG.id + "video", hG.video) ? "z-index: 5" : "z-index: -1"'
                   class='game-highlight-game-card-video'
                   [muted]='true'
                   loop

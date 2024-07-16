@@ -22,7 +22,7 @@ import { SanitizeHtmlPipe } from '../../shared/pipes/sanitize-html.pipe';
     FontAwesomeModule,
     SharedModule,
     TranslateModule,
-    SanitizeHtmlPipe,
+    SanitizeHtmlPipe
   ],
 })
 export class GameModule {
