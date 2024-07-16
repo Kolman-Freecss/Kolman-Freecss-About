@@ -15,10 +15,12 @@ import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SanitizeHtmlPipe } from './shared/pipes/sanitize-html.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './locale/', '.json');
+  return new TranslateHttpLoader(http, '/locale/', '.json');
 }
+
 
 @NgModule({
   declarations: [
@@ -40,9 +42,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
+    SanitizeHtmlPipe,
   ],
   providers: [
     provideHttpClient()

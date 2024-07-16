@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { GAMES_PATH, HOME_PATH } from '../../../paths';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -29,7 +29,7 @@ const rotateAnimation = trigger('rotateAnimation', [
     rotateAnimation
   ],
 })
-export class NavComponent implements OnDestroy {
+export class NavComponent implements OnDestroy, AfterViewInit {
 
   home = '/' + HOME_PATH;
   games = '/' + GAMES_PATH;
@@ -50,6 +50,9 @@ export class NavComponent implements OnDestroy {
     this.langSub = this.cacheService.langEventChanged.subscribe((lang) => {
       this.handleLangSelected(lang);
     });
+  }
+
+  ngAfterViewInit(): void {
     this.handleLangSelected(this.cacheService.getLangSelected());
   }
 

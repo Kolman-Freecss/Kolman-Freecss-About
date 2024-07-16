@@ -7,9 +7,9 @@
       <section class='home-introduction-wrapper' id='home-introduction-id' #homeintroduction appScrollSection="one">
         <div class='home-introduction-text-wrapper'>
           <h1>{{ "home_welcome" | translate}}</h1>
-          <h2>Soy Sergio! (Kolman-Freecss)</h2>
+          <h2>{{ "home_subtitle" | translate}}</h2>
           <p>
-            Aquí podrás ver mis proyectos y contactar conmigo a través de mis RRSS.
+            {{ "home_description" | translate}}
           </p>
         </div>
         <div class='home-introduction-buttons-wrapper fa-3x'>
@@ -30,13 +30,12 @@
                                                                                            alt='Sergio' style='width: 5%'>
         </h1>
         <p>
-          Soy Ingeniero informático con más de 5 años trabajando profesionalmente en proyectos web y muchos más en
-          proyectos personales, además de tener una especial afinidad por construir y desarrollar videojuegos.
+          {{ "home_presentation_1" | translate}}
         </p>
-        <h4>Skills</h4>
+        <h4>{{ "home_presentation_2" | translate}}</h4>
         <ul>
           <li>
-            <strong>Desarrollo de videojuegos</strong>
+            <strong>{{ "home_presentation_3" | translate}}</strong>
             <span class='badge bg-secondary'>Unity</span>
             <span class='badge bg-secondary'>C#</span>
             <span class='badge bg-secondary'>C++</span>
@@ -44,7 +43,7 @@
             <span class='badge bg-secondary'>Javascript</span>
           </li>
           <li>
-            <strong>Desarrollo web</strong>
+            <strong>{{ "home_presentation_4" | translate}}</strong>
             <span class='badge bg-secondary'>Angular</span>
             <span class='badge bg-secondary'>Spring</span>
             <span class='badge bg-secondary'>Typescript</span>
@@ -57,11 +56,12 @@
             <span class='badge bg-secondary'>Docker</span>
             <span class='badge bg-secondary'>Kubernetes</span>
             <span class='badge bg-secondary'>Gitlab</span>
+            <span class='badge bg-secondary'>GitHub</span>
             <span class='badge bg-secondary'>Terraform</span>
             <span class='badge bg-secondary'>ELK</span>
           </li>
           <li>
-            <strong>Lenguajes</strong>
+            <strong>{{ "home_presentation_5" | translate}}</strong>
             <span class='badge bg-secondary'>Java</span>
             <span class='badge bg-secondary'>Typescript</span>
             <span class='badge bg-secondary'>Python</span>
@@ -69,112 +69,115 @@
             <span class='badge bg-secondary'>C++</span>
           </li>
           <li>
-            <strong>Otros</strong>
+            <strong>{{ "home_presentation_6" | translate}}</strong>
             <span class='badge bg-secondary'>SCRUM</span>
             <span class='badge bg-secondary'>Azure</span>
           </li>
         </ul>
         <p>
-          En los proyectos que he trabajado he hecho uso de patrones de arquitectura y diseño como la arquitectura hexagonal, DAO, DTO, MVC, etc.
+          {{ "home_presentation_7" | translate}}
         </p>
         <p>
-          He construido y desplegado servicios web (tanto front como back) tanto en entornos locales como en entornos en la nube de Azure.
+          {{ "home_presentation_8" | translate}}
         </p>
         <p>
-          He realizado implantaciones de infrastructuras con las tecnologías Docker, Kubernetes, Gitlab, Terraform y ELK.
+          {{ "home_presentation_9" | translate}}
         </p>
         <p>
-           También he hecho uso de multitud de tecnologías aparte de las mencionadas, como el control de versiones Git, gestores de dependencias como Maven o Gradle, frameworks de testing como JUnit o TestNG, frameworks de diseño como Bootstrap, etc.
+           {{ "home_presentation_10" | translate}}
         </p>
         <p>
-          Puedes encontrar mis proyectos e información relacionada en la sección de <a [routerLink]='game'>games</a>, espero que te sea de ayuda!
+          {{ "home_presentation_11" | translate}}
         </p>
+        <p> {{ "home_presentation_12" | translate}} </p>
+        <p [innerHTML]="'home_presentation_13' | translate | sanitizeHtml"></p>
       </section>
       <section class='home-education-wrapper' id='home-education-id' appScrollSection="three">
-        <h1>Formación</h1>
+        <h1>{{ "home_formation_1" | translate}}</h1>
         <div class='education-card-wrapper'>
           <div class='card' style='width: 18rem;'>
             <img src='assets/img/thecoreschool.png' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>The core school 2023 - En curso</h5>
-              <strong>Máster en programación de videojuegos</strong>
+              <strong>{{ "home_formation_2" | translate}}</strong>
             </div>
           </div>
           <div class='card' style='width: 18rem;'>
             <img src='assets/img/logo-uoc.png' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Universitat Oberta de Catalunya 2018 - 2022</h5>
-              <strong>Ingeniería informática</strong>
+              <strong>{{ "home_formation_3" | translate}}</strong>
             </div>
           </div>
           <div class='card' style='width: 18rem;'>
             <img src='assets/img/logo_marianao.png' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>IES Marianao 2016 - 2018</h5>
-              <strong>Grado Superior en Desarrollo de Aplicaciones Web (DAM)</strong>
+              <strong>{{ "home_formation_4" | translate}}</strong>
             </div>
           </div>
           <div class='card' style='width: 18rem;'>
             <img src='assets/img/e-learning.png' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>E-learning</h5>
-              <strong>Varias certificaciones y aprendizaje en plataformas como Udemy, OpenWebinars, Coursera...</strong>
+              <strong>{{ "home_formation_5" | translate}}</strong>
             </div>
           </div>
         </div>
       </section>
       <section class='home-experience-wrapper' id='home-experience-id' appScrollSection="four">
-        <h1>Experiencia</h1>
+        <h1>{{ "home_experience_1" | translate}}</h1>
         <div class='experience-card-wrapper'>
           <div class='card'>
             <img src='assets/img/imagar-logo.jpg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Senior Software Engineer & Analyst</h5>
-              <strong>Imagar Solutions Company NOV 2022 - Actual</strong>
-              <p>Diseño de estructura y arquitectura de proyectos</p>
-              <p>Implantaciones de infraestructuras DevOps</p>
-              <p>Creación de servicios Python</p>
-              <p>Implementaciones y mantenimientos de servicios con Angular y Springboot</p>
-              <p>Administración DDBB</p>
+              <strong>Imagar Solutions Company | NOV 2022 - {{ "home_experience_current" | translate}}</strong>
+              <p>{{ "home_experience_imagar_1" | translate}}</p>
+              <p>{{ "home_experience_imagar_2" | translate}}</p>
+              <p>{{ "home_experience_imagar_3" | translate}}</p>
+              <p>{{ "home_experience_imagar_4" | translate}}</p>
+              <p>{{ "home_experience_imagar_5" | translate}}</p>
+              <p>{{ "home_experience_imagar_6" | translate}}</p>
             </div>
           </div>
           <div class='card'>
             <img src='assets/img/capgemini-logo.png' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Software Engineer</h5>
-              <strong>Capgemini Engineering ENE 2022 - NOV 2022</strong>
-              <p>Diseño de estructura y arquitectura de proyectos</p>
-              <p>Desarrollo de nuevas características tanto para front-end como back-end</p>
-              <p>Desarrollo de REST API para la parte APP</p>
-              <p>Migración de diferentes frameworks a nuevas tendencias</p>
-              <p>Administración DDBB</p>
+              <strong>Capgemini Engineering | ENE 2022 - NOV 2022</strong>
+              <p>{{ "home_experience_capgemini_1" | translate}}</p>
+              <p>{{ "home_experience_capgemini_2" | translate}}</p>
+              <p>{{ "home_experience_capgemini_3" | translate}}</p>
+              <p>{{ "home_experience_capgemini_4" | translate}}</p>
+              <p>{{ "home_experience_capgemini_5" | translate}}</p>
             </div>
           </div>
           <div class='card'>
             <img src='assets/img/carver-logo.jpg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Software Engineer</h5>
-              <strong>Carver Advanced Systems S.L SEPT 2018 - ENE 2022</strong>
-              <p>Full stack en el proceso de todo el ciclo de vida de múltiples proyectos</p>
-              <p>Desarrollo y mantenimiento de web apps y web services API REST con Java EE</p>
-              <p>Administración DDBB</p>
+              <strong>Carver Advanced Systems S.L | SEPT 2018 - ENE 2022</strong>
+              <p>{{ "home_experience_carver_1" | translate}}</p>
+              <p>{{ "home_experience_carver_2" | translate}}</p>
+              <p>{{ "home_experience_carver_3" | translate}}</p>
             </div>
           </div>
           <div class='card'>
             <img src='assets/img/everis-logo.jpg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Software Developer</h5>
-              <strong>Everis FEB 2018 - JUL 2018</strong>
-              <p>Desarrollo de una web app para una inmobiliaria</p>
+              <strong>Everis | FEB 2018 - JUL 2018</strong>
+              <p>{{ "home_experience_everis_1" | translate}}</p>
             </div>
           </div>
           <div class='card'>
             <img src='assets/img/beep-logo.jpg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Hardware Technician</h5>
-              <strong>BEEP Informática OCT 2018 - MAY 2016</strong>
-              <p>Mantenimiento y instalación de Hardware y Software</p>
-              <p>Administración y instalación de SO</p>
+              <strong>BEEP Informática | OCT 2018 - MAY 2016</strong>
+              <p>{{ "home_experience_beep_1" | translate}}</p>
+              <p>{{ "home_experience_beep_2" | translate}}</p>
             </div>
           </div>
         </div>

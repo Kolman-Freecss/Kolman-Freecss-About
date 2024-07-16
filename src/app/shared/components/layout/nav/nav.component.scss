@@ -18,6 +18,11 @@
       > div {
         margin-right: 30%;
       }
+      .selected {
+        > img {
+          opacity: 1 !important;
+        }
+      }
     }
   }
 }
@@ -45,9 +50,6 @@
   width: 48px;
   height: 48px;
   opacity: 0.3;
-  .selected {
-    opacity: 1;
-  }
   &:hover {
     transform: scale(1.2);
     opacity: 0.6;

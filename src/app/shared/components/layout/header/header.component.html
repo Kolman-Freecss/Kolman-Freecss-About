@@ -2,10 +2,10 @@
     [className]="showHeader? 'navbar-wrapper sticky-top show-header-wrapper' : 'navbar-wrapper sticky-top hide-header-wrapper'"
      id='headerwrapper' #headerwrapper>
   <nav class='navbar  bg-body-tertiary'>
-    <a class='navbar-brand' appScrollAnchor="one" (mouseenter)='playHoverSound();'>INICIO</a>
-    <a class='navbar-brand' appScrollAnchor="two" (mouseenter)='playHoverSound();'>SOBRE MI</a>
-    <a class='navbar-brand' appScrollAnchor="three" (mouseenter)='playHoverSound();'>EDUCACIÓN</a>
-    <a class='navbar-brand' appScrollAnchor="four" (mouseenter)='playHoverSound();'>EXPERIENCIA</a>
+    <a class='navbar-brand' appScrollAnchor="one" (mouseenter)='playHoverSound();'>{{ "header_1" | translate }}</a>
+    <a class='navbar-brand' appScrollAnchor="two" (mouseenter)='playHoverSound();'>{{ "header_2" | translate }}</a>
+    <a class='navbar-brand' appScrollAnchor="three" (mouseenter)='playHoverSound();'>{{ "header_3" | translate }}</a>
+    <a class='navbar-brand' appScrollAnchor="four" (mouseenter)='playHoverSound();'>{{ "header_4" | translate }}</a>
   </nav>
 
   <audio #hoverSound src='assets/audio/click_003.ogg'></audio>

@@ -32,7 +32,7 @@ export class CacheService {
 
   setLangSelected(lang?: string): void {
     this.langSelected = lang ?? this.langSelected;
-    const userLang = navigator.language || this.langSelected;
+    const userLang = lang ? this.langSelected : navigator.language || this.langSelected;
     const languageCode = userLang.split('-')[0];
     this.translateService.setDefaultLang("messages." + languageCode);
     this.translateService.use("messages." + languageCode);

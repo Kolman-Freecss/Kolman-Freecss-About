@@ -2,8 +2,8 @@
   <div class='game-content-wrapper'>
     <section class='game-introduction-wrapper'>
       <div class='game-introduction-text-wrapper'>
-        <h2>Unity, Multijugador, RPG's y más</h2>
-        <h1>¡Investiga los juegos que he realizado aquí abajo!</h1>
+        <h2>{{ "game_title" | translate }}</h2>
+        <h1>{{ "game_subtitle" | translate }}</h1>
       </div>
       <div class='game-introduction-buttons-wrapper fa-3x'>
         <a class='introduction-button' appScrollAnchor="game-table" (mouseenter)='playHoverSound();'>
@@ -18,12 +18,12 @@
       <div *ngIf='loading' class='loading-window'>
         <div class='alert alert-info lead text-center'>
           <i class='fa fa-fw fa-spinner fa-pulse' aria-hidden='true'></i>
-          Cargando...
+          {{ "game_loading" | translate }}
         </div>
       </div>
 
       <div class='filter-icon-wrapper fa-2x' (click)='showFilters()'>
-        <h4>Filtros</h4>
+        <h4>{{ "game_filter_title" | translate }}</h4>
         <fa-icon [icon]="filterIcon" (mouseenter)='playHoverSound();'></fa-icon>
       </div>
 
@@ -31,33 +31,33 @@
         <div class='row'>
 
           <div class='form-group mb-3 col-12 col-md-2'>
-            <label for='name' class='form-label'>Nombre</label>
+            <label for='name' class='form-label'>{{ "game_filter_name" | translate }}</label>
             <input type='text' formControlName='name' class='form-control' id='name'
                    placeholder='Escribe el nombre del juego' />
           </div>
 
           <div class='form-group mb-3 col-12 col-md-4'>
-            <label for='description' class='form-label'>Descripción</label>
+            <label for='description' class='form-label'>{{ "game_filter_description" | translate }}</label>
             <input type='text' formControlName='description' class='form-control'
                    id='description' placeholder='Descripción'>
           </div>
         </div>
 
         <div class='filter-buttons-wrapper'>
-          <button type='submit' class='btn btn-outline-danger' id='game-submit-button' (mouseenter)='playHoverSound();'>Buscar</button>
+          <button type='submit' class='btn btn-outline-danger' id='game-submit-button' (mouseenter)='playHoverSound();'>{{ "game_filter_search" | translate }}</button>
           <button type='button' (click)='onReset()' class='btn btn-danger' id='game-reset-button' (mouseenter)='playHoverSound();'>
-            Borrar
+            {{ "game_filter_reset" | translate }}
           </button>
         </div>
       </form>
 
       <div *ngIf='gamePage.content.length === 0 && submitted' class='alert alert-secondary' role='alert'>
-        No se han encontrado juegos que cumplan los criterios de búsqueda empleados en el formulario.
+        {{ "game_filter_no_results" | translate }}
       </div>
 
       <div *ngIf='gamePage.content.length > 0 && submitted' class='cards-data-table-wrapper'>
 
-        <h4>Juegos</h4>
+        <h4>{{ "game_results_title" | translate }}</h4>
 
         <div class='cards-filtered-wrapper'>
           <div *ngFor='let game of gamePage.content' class='card-wrapper'>
@@ -65,7 +65,7 @@
               <div class='card-body p-4'>
                 <h3 class='mb-0'>{{game.name}}</h3>
                 <p class='card-text mb-auto'>{{game.description}}</p>
-                <a [href]='game.link' class="btn btn-danger" target='_blank' (mouseenter)='playHoverSound();'>Source!</a>
+                <a [href]='game.link' class="btn btn-danger" target='_blank' (mouseenter)='playHoverSound();'>{{ "game_results_button_source" | translate }}</a>
               </div>
               <div class='p-4'>
                 <img [src]='game.image' alt='Imagen de juego'>
@@ -78,7 +78,7 @@
       <nav *ngIf='gamePage.content.length > 0' class='game-paginator-wrapper'>
         <ul class="pagination">
           <li id="prev" class="page-item" [ngClass]="{ 'disabled': options.page < 1 }">
-            <a class="page-link" (click)="prev()" (mouseenter)='playHoverSound();'>Previous</a>
+            <a class="page-link" (click)="prev()" (mouseenter)='playHoverSound();'>{{ "game_results_pagination_prev" | translate }}</a>
           </li>
           <ng-container *ngIf="gamePage.content">
             <li class="page-item" *ngFor="let number of arrayFromMaxNumber(gamePage.filteredPages)" [ngClass]="{ 'active': options.page === number }">
@@ -86,7 +86,7 @@
             </li>
           </ng-container>
           <li id="next" class="page-item" [ngClass]="{ 'disabled': options.page >= gamePage.filteredPages - 1}">
-            <a class="page-link" (click)="next()" disabled="true" (mouseenter)='playHoverSound();'>Next</a>
+            <a class="page-link" (click)="next()" disabled="true" (mouseenter)='playHoverSound();'>{{ "game_results_pagination_next" | translate }}</a>
           </li>
         </ul>
       </nav>

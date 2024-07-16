@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideNgxWebstorage, withLocalStorage, withNgxWebstorageConfig, withSessionStorage } from 'ngx-webstorage';
 import { TranslateModule } from '@ngx-translate/core';
+import { SanitizeHtmlPipe } from '../../shared/pipes/sanitize-html.pipe';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
       FontAwesomeModule,
       SharedModule,
       TranslateModule,
+      SanitizeHtmlPipe,
    ],
     providers: [
         provideNgxWebstorage(

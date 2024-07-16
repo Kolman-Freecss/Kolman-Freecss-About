@@ -3,6 +3,7 @@ import { GAMES_PATH } from '../../../shared/paths';
 import { AnimationService } from '../../../shared/services/animation.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const rotateAnimation = trigger('rotateAnimation', [
   state('rotated', style({ transform: 'rotateX(360deg)' })),
@@ -36,7 +37,9 @@ export class HomeComponent {
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
-  constructor(private animationService: AnimationService) {
+  constructor(private animationService: AnimationService,
+              private sanitizer: DomSanitizer
+              ) {
   }
 
   toggleGithubHover() {
