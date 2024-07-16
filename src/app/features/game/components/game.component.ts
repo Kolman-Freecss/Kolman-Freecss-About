@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostBinding, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Game } from '../models';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, Subject, takeUntil, tap } from 'rxjs';
@@ -9,11 +9,26 @@ import { HighlightGame, Options } from '../../../shared/models';
 import { GamePage } from '../models/game';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
+  animations: [
+    trigger('fadeImg', [
+      state('fadeInImg', style({ opacity: 1 })),
+      state('fadeOutImg', style({ opacity: 0 })),
+      transition('fadeInImg => fadeOutImg', animate('500ms ease-out')),
+      transition('fadeOutImg => fadeInImg', animate('500ms ease-in'))
+    ]),
+    trigger('fadeVideo', [
+      state('fadeInImg', style({ opacity: 1 })),
+      state('fadeOutImg', style({ opacity: 0 })),
+      transition('fadeInImg => fadeOutImg', animate('500ms ease-out')),
+      transition('fadeOutImg => fadeInImg', animate('500ms ease-in'))
+    ])
+  ]
 })
 export class GameComponent implements OnInit, OnDestroy {
 
@@ -43,6 +58,8 @@ export class GameComponent implements OnInit, OnDestroy {
 
   highlightGames : HighlightGame[] = [];
 
+  @HostBinding('@fadeImg') fadeImg = 'fadeInImg';
+  @HostBinding('@fadeVideo') fadeVideo = 'fadeOutImg';
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
   imagesBackground: string[] = [
@@ -111,6 +128,8 @@ export class GameComponent implements OnInit, OnDestroy {
     }
     const video = document.getElementById(id) as HTMLVideoElement;
     if (video) {
+      this.fadeImg = 'fadeOutImg';
+      this.fadeVideo = 'fadeInImg';
       video.play();
     }
   }
@@ -121,6 +140,8 @@ export class GameComponent implements OnInit, OnDestroy {
     }
     const video = document.getElementById(id) as HTMLVideoElement;
     if (video) {
+      this.fadeImg = 'fadeInImg';
+      this.fadeVideo = 'fadeOutImg';
       video.pause();
     }
   }

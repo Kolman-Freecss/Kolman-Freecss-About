@@ -32,12 +32,12 @@
                 </div>
                 <div class='overlay top'></div>
                 <img
-                  [style]='{ "visibility": isVideoPlaying(hG.id + "video", hG.video) ? "hidden" : "visible" }'
+                  [@fadeImg]='fadeImg'
                   [src]='hG.image'
                   class='d-block w-100'
                   alt='No image found!'>
                 <video
-                  [style]='{ "visibility": isVideoPlaying(hG.id + "video", hG.video) ? "visible" : "hidden" }'
+                  [@fadeVideo]='fadeVideo'
                   class='game-highlight-game-card-video'
                   [muted]='true'
                   loop
