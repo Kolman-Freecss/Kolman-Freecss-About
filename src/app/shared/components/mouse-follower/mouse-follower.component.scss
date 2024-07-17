@@ -1,0 +1,40 @@
+.follower {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  transform: translate(30%, 30%);
+  > .follower-inner-img {
+    border-radius: 50%;
+    pointer-events: none;
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+    > .wave {
+      width: 60%;
+      height: 100%;
+      transform: translate(30%, -100%);
+    }
+  }
+  > .follower-inner-text {
+    margin-top: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+  }
+}
+
+@keyframes wave-animation {
+  0% { d: path("M0 50 Q 25 20, 50 50 T 100 50 T 150 50 T 200 50"); }
+  50% { d: path("M0 50 Q 25 80, 50 50 T 100 50 T 150 50 T 200 50"); }
+  100% { d: path("M0 50 Q 25 20, 50 50 T 100 50 T 150 50 T 200 50"); }
+}
+
+#wave-path {
+  animation: wave-animation 2s infinite;
+}

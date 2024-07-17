@@ -11,6 +11,7 @@ export class CacheService {
   langSelected = 'en';
 
   public soundEventToggled = new Subject<boolean>();
+  public soundEventEnabled = new Subject<boolean>();
   public langEventChanged = new Subject<string>();
 
   constructor(
@@ -19,6 +20,11 @@ export class CacheService {
 
   isSoundMuted(): boolean {
     return this.soundMuted;
+  }
+
+  setSoundMuted(soundMuted: boolean): void {
+    this.soundMuted = soundMuted;
+    this.soundEventEnabled.next(this.soundMuted);
   }
 
   toggleSoundMuted(): void {

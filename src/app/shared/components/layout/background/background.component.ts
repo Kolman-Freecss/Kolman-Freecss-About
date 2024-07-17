@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './background.component.html',
   styleUrls: ['./background.component.scss']
 })
-export class BackgroundComponent implements AfterViewInit, OnDestroy {
+export class BackgroundComponent implements AfterViewInit, OnDestroy, OnInit {
 
   @Input() background: BackgroundType = BackgroundType.Video;
   @Input() imagesBackground: string[] = [];
@@ -18,9 +18,21 @@ export class BackgroundComponent implements AfterViewInit, OnDestroy {
 
   audioSub: Subscription;
 
+  mouseOverListener: EventListener;
+
   constructor(
     protected cacheService: CacheService,
   ) {
+    this.mouseOverListener = () => {
+      const audio = document.getElementById('audio_id') as HTMLAudioElement;
+      if (audio) {
+        console.log('audio', audio);
+        audio.play().then(r => {
+          this.cacheService.setSoundMuted(false);
+        }).catch(e => console.error(e));
+        document?.removeEventListener('click', this.mouseOverListener);
+      }
+    }
     this.audioSub = cacheService.soundEventToggled.subscribe((soundMuted: boolean) => {
       const audioBackgroundSound = document.getElementById('audio_id') as HTMLAudioElement;
       if (audioBackgroundSound) {
@@ -34,6 +46,12 @@ export class BackgroundComponent implements AfterViewInit, OnDestroy {
       this.video.nativeElement.muted = true;
       this.video.nativeElement.play();
     }
+    document.addEventListener('click', this.mouseOverListener);
+  }
+
+  ngOnInit(): void {
+    const audio = document.getElementById('audio_id') as HTMLAudioElement;
+    this.cacheService.setSoundMuted(audio.paused);
   }
 
   isCarouselBackground(): boolean {

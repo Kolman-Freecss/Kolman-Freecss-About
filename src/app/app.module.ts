@@ -24,6 +24,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MouseFollowerComponent } from './shared/components/mouse-follower/mouse-follower.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/Kolman-Freecss-About/assets/locale/', '.json');
@@ -54,7 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     MatFormFieldModule, MatSelectModule, FormsModule, ReactiveFormsModule,
-    SanitizeHtmlPipe,
+    SanitizeHtmlPipe, MouseFollowerComponent,
   ],
   providers: [
     provideHttpClient(),

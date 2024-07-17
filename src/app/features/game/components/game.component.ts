@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Game } from '../models';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, Subject, Subscription, takeUntil, tap } from 'rxjs';
 import { GameService } from '../services';
