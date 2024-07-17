@@ -142,7 +142,8 @@
                 <div class='card-body-techs-container'>
                   <span *ngFor='let tech of game.techs' class='badge bg-danger'>{{ tech }}</span>
                 </div>
-                <a [href]='game.link' class='btn btn-danger' target='_blank'
+                <a [style]='game.link ? "" : "visibility: hidden;"'
+                  [href]='game.link' class='btn btn-danger' target='_blank'
                    (mouseenter)='playHoverSound();'>{{ "game_results_button_source" | translate }}</a>
               </div>
               <div class='p-4'>
