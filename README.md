@@ -14,7 +14,7 @@ Built with Angular 18
 
 ```bash
 # Script in angular.json
-ng deploy
+ng deploy --base-href https://[username].github.io/[repo]/
 ```
 
 ## Troubleshoting

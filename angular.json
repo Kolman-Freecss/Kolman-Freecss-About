@@ -15,8 +15,8 @@
       "prefix": "app",
       "i18n": {
         "locales": {
-          "en": "src/locale/messages.en.json",
-          "es": "src/locale/messages.es.json"
+          "en": "src/assets/locale/messages.en.json",
+          "es": "src/assets/locale/messages.es.json"
         }
       },
       "architect": {
@@ -34,8 +34,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/locale"
+              "src/assets"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
