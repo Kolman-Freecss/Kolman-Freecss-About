@@ -1,0 +1,111 @@
+.contact-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .overlay {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+  }
+
+  > .top {
+    top: 0;
+    background: linear-gradient(to bottom, rgb(16 15 15) 0%, rgba(0, 0, 0, 0) 100%)
+  }
+
+  > .bottom {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(16 15 15) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  #contact-invoke-wrapper-mother {
+    justify-content: center;
+    width: 100%;
+    padding: 0%;
+  }
+
+  > .contact-content-wrapper {
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    > .contact-introduction-wrapper {
+      height: 100vh;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      display: inherit;
+      justify-content: inherit;
+      padding: 10%;
+
+      > .contact-introduction-text-wrapper {
+        display: inherit;
+        flex-direction: column;
+        align-items: center;
+
+        > h1 {
+          font-size: calc(1rem + 1.5vw);
+          color: white;
+        }
+
+        > h2 {
+          color: rgb(187 8 22 / 96%);
+          font-size: calc(1rem + 1vw);
+        }
+      }
+
+      > .contact-introduction-buttons-wrapper {
+        display: inherit;
+        flex-direction: row;
+        gap: 40px;
+        cursor: pointer;
+
+        > .contact-button {
+          color: white;
+
+          &:hover {
+            color: #a22b1c;
+          }
+        }
+      }
+    }
+
+    > .contact-invoke-wrapper {
+      flex-direction: column;
+      display: inherit;
+      justify-content: inherit;
+      padding: 10%;
+      //background-image: url('../../../../assets/img/general-background-7.jpg');
+      background-color: rgba(25,25,25,0.6);
+      > #contact-invoke-mother-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        > .contact-invoke-intro {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+// Encapsulate all the styles referred to the contact form
+.contact-invoke-form {
+
+  .mat-stepper-vertical {
+    margin-top: 8px;
+  }
+
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+
+
+}
+

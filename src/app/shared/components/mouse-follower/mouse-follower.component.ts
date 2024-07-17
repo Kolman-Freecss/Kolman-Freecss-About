@@ -32,7 +32,6 @@ export class MouseFollowerComponent implements OnInit, OnDestroy {
               private el: ElementRef,
               protected cacheService: CacheService) {
     this.audioSub = cacheService.soundEventEnabled.subscribe((soundMuted: boolean) => {
-      console.log('soundMuted', soundMuted);
       if (!soundMuted && this.isMouseFollowerActive) {
         this.disableMouseFollower();
         this.audioSub.unsubscribe();
@@ -57,7 +56,6 @@ export class MouseFollowerComponent implements OnInit, OnDestroy {
   }
 
   disableMouseFollower() {
-    console.log('disableMouseFollower');
     if (this.isMouseFollowerActive) {
       this.isMouseFollowerActive = false;
     }

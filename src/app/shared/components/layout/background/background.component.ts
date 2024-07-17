@@ -26,7 +26,6 @@ export class BackgroundComponent implements AfterViewInit, OnDestroy, OnInit {
     this.mouseOverListener = () => {
       const audio = document.getElementById('audio_id') as HTMLAudioElement;
       if (audio) {
-        console.log('audio', audio);
         audio.play().then(r => {
           this.cacheService.setSoundMuted(false);
         }).catch(e => console.error(e));

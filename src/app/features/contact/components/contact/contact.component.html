@@ -1,1 +1,74 @@
-<p>contact works!</p>
+<div class='contact-main-wrapper' appScrollManager>
+  <div class='contact-content-wrapper'>
+    <section class='contact-introduction-wrapper'>
+      <div class='contact-introduction-text-wrapper'>
+        <h2>{{ "contact_title" | translate }}</h2>
+        <h1>{{ "contact_subtitle" | translate }}</h1>
+      </div>
+      <div class='contact-introduction-buttons-wrapper fa-3x'>
+        <a class='introduction-button' appScrollAnchor='contact-section' (mouseenter)='playHoverSound();'>
+          <div class='fa-beat-fade'>
+            <fa-icon [icon]='arrow'></fa-icon>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class='contact-invoke-wrapper' appScrollSection='contact-section'>
+<!--      <div class='overlay top'></div>-->
+      <div id='contact-invoke-mother-form'>
+        <div class='contact-invoke-intro w-50'>
+          <h1>{{ "contact_invoke_title" | translate }}</h1>
+          <p>{{ "contact_invoke_subtitle" | translate }}</p>
+        </div>
+        <div class='contact-invoke-form w-50'>
+          <mat-stepper orientation="vertical" [linear]="true"#stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Fill out your name</ng-template>
+                <mat-form-field>
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="Last name, First name" formControlName="name" required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Fill out your address</ng-template>
+                <mat-form-field>
+                  <mat-label>Address</mat-label>
+                  <input matInput formControlName="email" placeholder="Ex. 1 Main St, New York, NY"
+                         required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="thirdFormGroup">
+              <form [formGroup]="thirdFormGroup">
+                <ng-template matStepLabel>Done</ng-template>
+                <mat-form-field>
+                  <mat-label>Address</mat-label>
+                  <input matInput formControlName="message" placeholder="Ex. 1 Main St, New York, NY"
+                         required>
+                </mat-form-field>
+                <p>You are now done.</p>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button (click)="onSubmit()">Send</button>
+                </div>
+              </form>
+            </mat-step>
+          </mat-stepper>
+        </div>
+      </div>
+<!--      <div class='overlay bottom'></div>-->
+    </section>
+  </div>
+
+  <audio #hoverSound src='assets/audio/click_003.ogg'></audio>
+</div>

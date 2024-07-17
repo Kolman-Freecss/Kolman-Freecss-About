@@ -29,11 +29,11 @@ export class AppComponent implements OnInit {
     this.setCarouselBackground(BackgroundType.Video);
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url === '/game') {
-          this.setGameImageBackground();
-        } else {
-          this.setHomeImageBackground();
-        }
+        // if (event.url === '/contact') {
+        //   this.background = BackgroundType.Image;
+        // } else {
+        //   this.background = BackgroundType.Video;
+        // }
       }
     });
   }
@@ -65,3 +65,4 @@ export class AppComponent implements OnInit {
   }
 
 }
+
