@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { GAMES_PATH, HOME_PATH } from '../../../paths';
+import { AfterViewInit, Component, ElementRef, OnChanges, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { CONTACT_PATH, GAMES_PATH, HOME_PATH } from '../../../paths';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { faAnglesLeft, faAnglesRight, faGamepad, faPortrait } from '@fortawesome/free-solid-svg-icons';
@@ -29,10 +29,12 @@ const rotateAnimation = trigger('rotateAnimation', [
     rotateAnimation
   ],
 })
-export class NavComponent implements OnDestroy, AfterViewInit {
+export class NavComponent implements OnDestroy, AfterViewInit, OnInit {
 
   home = '/' + HOME_PATH;
   games = '/' + GAMES_PATH;
+  contact = '/' + CONTACT_PATH;
+
   homeIcon = faPortrait;
   gameIcon = faGamepad;
 
@@ -41,9 +43,12 @@ export class NavComponent implements OnDestroy, AfterViewInit {
   arrowLeft = faAnglesLeft;
   arrowRight = faAnglesRight;
 
+  routeSub: Subscription | undefined;
   langSub: Subscription;
+
   @ViewChild('flag_es') flagEs: ElementRef<HTMLImageElement> | undefined;
   @ViewChild('flag_en') flagEn: ElementRef<HTMLImageElement> | undefined;
+  @ViewChild('tab_link_contact') tabLinkContact: ElementRef<HTMLAnchorElement> | undefined;
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
@@ -59,6 +64,17 @@ export class NavComponent implements OnDestroy, AfterViewInit {
     this.handleLangSelected(this.cacheService.getLangSelected());
   }
 
+  ngOnInit(): void {
+    // Listener to animate the tabs-wrapper-links
+    this.routeSub = this.route.events.subscribe(() => {
+      if (this.route.url.startsWith(this.contact)) {
+        this.tabLinkContact?.nativeElement.classList.add('active');
+      } else {
+        this.tabLinkContact?.nativeElement.classList.remove('active');
+      }
+    });
+  }
+
   toggleHover() {
     this.playHoverSound();
     this.animationState = this.animationState === 'rotated' ? 'notRotated' : 'rotated'
@@ -69,7 +85,7 @@ export class NavComponent implements OnDestroy, AfterViewInit {
   }
 
   isGames(): boolean {
-    return this.route.url.startsWith(this.games);
+    return this.route.url.startsWith(this.games) || this.route.url.startsWith(this.contact);
   }
 
   playHoverSound(): void {
@@ -99,6 +115,9 @@ export class NavComponent implements OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
     if (this.langSub) {
       this.langSub.unsubscribe();
+    }
+    if (this.routeSub) {
+      this.routeSub.unsubscribe();
     }
   }
 

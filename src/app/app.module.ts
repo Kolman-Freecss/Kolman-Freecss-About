@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MouseFollowerComponent } from './shared/components/mouse-follower/mouse-follower.component';
+import { ContactModule } from './features/contact';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/Kolman-Freecss-About/assets/locale/', '.json');
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     HomeModule,
     GameModule,
+    ContactModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
     SharedModule,

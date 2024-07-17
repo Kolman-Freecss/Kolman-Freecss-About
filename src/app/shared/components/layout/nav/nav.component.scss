@@ -7,12 +7,21 @@
 .navbar {
   display: flex;
   align-items: flex-start;
+  height: 7%;
+  > * {
+    height: 100%;
+    > * {
+      height: 100%;
+    }
+  }
   > .container-fluid {
     justify-content: space-between;
     #tabs-wrapper {
       display: flex;
       justify-content: center;
       > a {
+        display: flex;
+        align-items: center;
         margin-right: 10px;
         margin-left: 10px;
       }
@@ -23,15 +32,57 @@
         visibility: hidden;
       }
     }
-    #languages-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      > div {
-        margin-right: 30%;
+    #tabs-wrapper-links {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        > a {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+          margin-left: 10px;
+          transition: color 0.5s ease, background 0.9s ease;
+          &:hover {
+            color: white;
+            background: radial-gradient(
+              circle,
+              rgba(50, 20, 0, 0.3),
+              rgba(0, 0, 0, 0.3)
+            );
+            padding: 10px;
+            border-radius: 50px;
+          }
+        }
+        > .active {
+          color: white;
+          background: radial-gradient(
+            circle,
+            rgba(50, 20, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          );
+          padding: 10px;
+          border-radius: 50px;
+        }
       }
-      .selected {
-        > img {
-          opacity: 1 !important;
+    .tabs-wrapper-right{
+      display: flex;
+      justify-content: space-between;
+      #tabs-wrapper-links {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      #languages-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        width: 25%;
+        > div {
+          margin-right: 30%;
+        }
+        .selected {
+          > img {
+            opacity: 1 !important;
+          }
         }
       }
     }
