@@ -8,6 +8,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from '../../shared';
 import { TranslateModule } from '@ngx-translate/core';
 import { SanitizeHtmlPipe } from '../../shared/pipes/sanitize-html.pipe';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatOption, MatSelect } from '@angular/material/select';
 
 
 @NgModule({
@@ -22,7 +24,11 @@ import { SanitizeHtmlPipe } from '../../shared/pipes/sanitize-html.pipe';
     FontAwesomeModule,
     SharedModule,
     TranslateModule,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    MatFormField,
+    MatSelect,
+    MatOption,
+    MatLabel
   ],
 })
 export class GameModule {

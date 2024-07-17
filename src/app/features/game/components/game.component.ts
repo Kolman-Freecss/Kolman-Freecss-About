@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Game } from '../models';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable, Subject, takeUntil, tap } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil, tap } from 'rxjs';
 import { GameService } from '../services';
 import { ToastrService } from 'ngx-toastr';
 import { faAnglesDown, faFilter } from '@fortawesome/free-solid-svg-icons';
@@ -25,13 +25,13 @@ const fadeInOut = trigger('fadeInOut', [
 })
 export class GameComponent implements OnInit, OnDestroy {
 
-  games: Game[] = [];
   gamePage: GamePage = {
     content: [],
     filteredSize: 0,
     filteredPages: 0,
     totalElements: 0,
   };
+  listPossibleTechs: string[] = [];
   arrow = faAnglesDown;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -52,6 +52,8 @@ export class GameComponent implements OnInit, OnDestroy {
   highlightGames : HighlightGame[] = [];
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
+
+  initPulledGames: Subscription | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -86,10 +88,11 @@ export class GameComponent implements OnInit, OnDestroy {
       });
   }
 
-  getGames(): void {
+  initGetGames(): void {
     this.loading = true;
 
-    this.service.getGamesPaginated(this.options)
+    this.initPulledGames = this.service.gamesPulled.subscribe(() => {
+      this.service.getGamesPaginated(this.options)
       .pipe(tap(() => {
           this.loading = true;
         }),
@@ -98,6 +101,7 @@ export class GameComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (result: GamePage) => {
           this.gamePage = result;
+          this.listPossibleTechs = this.possibleTechs();
           this.loading = false;
         },
         error: () => {
@@ -105,6 +109,9 @@ export class GameComponent implements OnInit, OnDestroy {
           this.loading = false;
         },
       });
+    });
+
+    this.service.refreshGames();
   }
 
   playVideo(id: string, videoP: string): void {
@@ -113,8 +120,7 @@ export class GameComponent implements OnInit, OnDestroy {
     }
     const video = document.getElementById(id) as HTMLVideoElement;
     if (video) {
-      console.log('start video');
-      video.play();
+      video.play().then(r => r).catch(e => e);
     }
   }
 
@@ -124,7 +130,6 @@ export class GameComponent implements OnInit, OnDestroy {
     }
     const video = document.getElementById(id) as HTMLVideoElement;
     if (video) {
-      console.log('pause video');
       video.pause();
     }
   }
@@ -137,7 +142,6 @@ export class GameComponent implements OnInit, OnDestroy {
     if (!video) {
       return false;
     }
-    console.log('!video.paused', !video.paused);
     return video ? !video.paused : false;
   }
 
@@ -149,6 +153,7 @@ export class GameComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       name: null,
       description: null,
+      techs: null,
     });
   }
 
@@ -167,6 +172,7 @@ export class GameComponent implements OnInit, OnDestroy {
     this.form.reset({
       name: null,
       description: null,
+      techs: null,
     });
 
     this.gamePage = {
@@ -181,6 +187,21 @@ export class GameComponent implements OnInit, OnDestroy {
     this.showFilter = !this.showFilter;
   }
 
+  possibleTechs(): string[] {
+    if (this.listPossibleTechs.length > 0) {
+      return this.listPossibleTechs;
+    }
+    const techs: string[] = [];
+    this.gamePage?.content?.forEach((game) => {
+      game.techs?.forEach((tech) => {
+        if (!techs.includes(tech)) {
+          techs.push(tech);
+        }
+      });
+    });
+    return techs;
+  }
+
   /**
    * #endregion
    */
@@ -190,7 +211,7 @@ export class GameComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.getGames();
+    this.initGetGames();
     this.getHighlightGames().subscribe((data) => {
       this.highlightGames = data;
     });
@@ -199,6 +220,9 @@ export class GameComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+    if (this.initPulledGames) {
+      this.initPulledGames.unsubscribe();
+    }
   }
 
   /**
@@ -232,7 +256,7 @@ export class GameComponent implements OnInit, OnDestroy {
     if (this.hoverSoundRef) {
       const audio = this.hoverSoundRef.nativeElement;
       audio.currentTime = 0;
-      audio.play();
+      audio.play().then(r => r).catch(e => e);
     }
   }
 

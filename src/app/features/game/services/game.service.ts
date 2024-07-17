@@ -1,26 +1,42 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable, OnInit } from '@angular/core';
+import { Observable, of, Subject } from 'rxjs';
 import { Game, SearchGamesQuery } from '../models';
-import data from '../../../../assets/data/games.json';
 import { Options } from '../../../shared/models';
 import { GamePage } from '../models/game';
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GameService {
+export class GameService implements OnInit {
 
   games: Game[] = [];
 
-  constructor() {
+  public gamesPulled = new Subject<void>();
+
+  constructor(
+    private firestore: Firestore
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.refreshGames();
+  }
+  
+  refreshGames(): void {
     this.loadGames();
   }
 
   /**
-   * This method is used to load the games from the json file (games.json)
+   * This method is used to load the games from the json file (deprecated_games.json)
    * */
   loadGames(): void {
-    this.games.push(...data);
+    const highlightRef = collection(this.firestore, 'games');
+    const firebaseGames = collectionData(highlightRef, {idField: 'id'}) as Observable<Game[]>;
+    firebaseGames.subscribe((games) => {
+      this.games = games;
+      this.gamesPulled.next();
+    });
   }
 
   searchGamesPaginated(query: SearchGamesQuery, options: Options): Observable<GamePage> {
@@ -32,16 +48,23 @@ export class GameService {
     };
     let gamesFiltered: Game[] = [];
 
-    if (query.name == null && query.description == null) {
+    if (query.name == null && query.description == null && (query.techs == null || query.techs.length === 0)) {
       return this.getGamesPaginated(options);
     }
 
     this.games.forEach((game) => {
-      if (query.name != null && query.name.length > 0 && game.name.toLowerCase().includes(query.name.toLowerCase())) {
+      if (query.name != null && query.name.length > 0 && game.title.toLowerCase().includes(query.name.toLowerCase())) {
         gamesFiltered.push(game);
       }
       if (query.description != null && query.description.length > 0 && game.description.toLowerCase().includes(query.description.toLowerCase())) {
         gamesFiltered.push(game);
+      }
+      if (query.techs != null && query.techs.length > 0) {
+        query.techs.forEach((tech) => {
+          if (game.techs?.includes(tech) && !gamesFiltered.includes(game)) {
+            gamesFiltered.push(game);
+          }
+        });
       }
     });
     let numGamesFiltered = gamesFiltered.length;

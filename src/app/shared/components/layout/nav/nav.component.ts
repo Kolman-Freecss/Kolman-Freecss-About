@@ -76,7 +76,7 @@ export class NavComponent implements OnDestroy, AfterViewInit {
     if (this.hoverSoundRef) {
       const audio = this.hoverSoundRef.nativeElement;
       audio.currentTime = 0;
-      audio.play();
+      audio.play().then(r => r).catch(e => e);
     }
   }
 

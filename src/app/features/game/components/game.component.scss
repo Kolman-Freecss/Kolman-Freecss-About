@@ -145,6 +145,17 @@
       background-color: rgba(18,15,20,0.3);
 
       > .game-form-wrapper {
+        .mat-form-wrapper {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          align-items: center;
+          justify-content: center;
+          margin-top: 20px;
+          mat-form-field {
+            display: flex;
+          }
+        }
         > .filter-buttons-wrapper {
           display: flex;
           flex-direction: row;
@@ -204,9 +215,11 @@
             flex-basis: 30%;
             flex-shrink: 0;
             display: flex;
+            width: 100%;
 
             > .card {
               display: flex;
+              width: 100%;
               flex-direction: row;
               background-color: transparent;
 
@@ -215,6 +228,13 @@
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+
+                > .card-body-techs-container {
+                  display: flex;
+                  flex-direction: row;
+                  gap: 10px;
+                  flex-wrap: wrap;
+                }
 
                 > .btn {
                   background-color: #430202;

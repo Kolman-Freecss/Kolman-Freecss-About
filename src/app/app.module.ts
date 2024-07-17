@@ -20,6 +20,10 @@ import { provideFirebaseApp, initializeApp as initializeApp_alias } from '@angul
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { initializeApp } from 'firebase/app';
 import { environment, firebaseConfig } from '../environments/environment';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/locale/', '.json');
@@ -49,12 +53,14 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    MatFormFieldModule, MatSelectModule, FormsModule, ReactiveFormsModule,
     SanitizeHtmlPipe,
   ],
   providers: [
     provideHttpClient(),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore()),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })

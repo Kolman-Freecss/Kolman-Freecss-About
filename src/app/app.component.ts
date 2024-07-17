@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
     if (this.hoverSoundRef) {
       const audio = this.hoverSoundRef.nativeElement;
       audio.currentTime = 0;
-      audio.play();
+      audio.play().then(r => r).catch(e => e);
     }
   }
 

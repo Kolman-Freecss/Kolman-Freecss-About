@@ -1,9 +1,12 @@
 ﻿export interface Game {
   id: number;
-  name: string;
+  title: string;
   description: string;
   image: string;
   link: string;
+  source: string;
+  video: string;
+  techs: string[];
 }
 
 export interface GamePage {
@@ -16,4 +19,5 @@ export interface GamePage {
 export interface SearchGamesQuery {
   name: string;
   description: string;
+  techs: string[];
 }

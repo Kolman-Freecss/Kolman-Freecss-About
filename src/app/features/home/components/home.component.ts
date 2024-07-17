@@ -66,12 +66,10 @@ export class HomeComponent {
   }
 
   public onMouseHoverWrapper() {
-    console.log('mouse hover wrapper');
     this.mouseHoverWrapper = true;
   }
 
   public onMouseLeaveWrapper() {
-    console.log('mouse leave wrapper');
     this.mouseHoverWrapper = false;
   }
 
@@ -79,7 +77,7 @@ export class HomeComponent {
     if (this.hoverSoundRef) {
       const audio = this.hoverSoundRef.nativeElement;
       audio.currentTime = 0;
-      audio.play();
+      audio.play().then(r => r).catch(e => e);
     }
   }
 
