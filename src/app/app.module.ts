@@ -26,7 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/assets/locale/', '.json');
+  return new TranslateHttpLoader(http, '/Kolman-Freecss-About/assets/locale/', '.json');
 }
 
 
