@@ -1,7 +1,7 @@
 .follower {
   width: 150px;
   height: 150px;
-  position: absolute;
+  position: fixed;
   transform: translate(30%, 30%);
   > .follower-inner-img {
     border-radius: 50%;
