@@ -44,16 +44,11 @@ export class AppComponent implements OnInit {
 
   setHomeImageBackground(): void {
     this.imagesBackground = [
-      'assets/img/general-background-7.jpg',
-      'assets/img/general-background-6.jpg',
-      'assets/img/general-background-5.jpg',
       ];
   }
 
   setGameImageBackground(): void {
     this.imagesBackground = [
-      'assets/img/BackgroundMenu.PNG',
-      'assets/img/BackgroundMenu2.PNG'
       ];
   }
 

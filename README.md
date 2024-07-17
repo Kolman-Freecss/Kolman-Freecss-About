@@ -8,6 +8,15 @@ Built with Angular 18
 - Firebase
 - Redux with NgRx
 
+## Getting Started
+
+### Deploy
+
+```bash
+# Script in angular.json
+ng deploy
+```
+
 ## Troubleshoting
 
 ### Firebase
