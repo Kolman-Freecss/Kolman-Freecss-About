@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.initSubscriptions();
+    this.onViewportScroll();
   }
 
   ngOnChanges(): void {
