@@ -1,0 +1,7 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Project exclude paths
+/sonarlint/
+# Editor-based HTTP Client requests
+/httpRequests/
