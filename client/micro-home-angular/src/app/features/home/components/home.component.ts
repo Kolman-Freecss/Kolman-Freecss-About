@@ -4,6 +4,7 @@ import { AnimationService } from '../../../shared/services/animation.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { faGithub, faItchIo, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { DomSanitizer } from '@angular/platform-browser';
+import { assetUrl } from '../../../../single-spa/asset-url';
 
 const rotateAnimation = trigger('rotateAnimation', [
   state('rotated', style({ transform: 'rotateX(360deg)' })),
@@ -26,6 +27,8 @@ export class HomeComponent {
   @ViewChild('homeintroduction') homeIntroduction!: ElementRef;
   mouseHoverWrapper = false;
 
+  clickSoundUrl = assetUrl('audio/click_003.ogg');
+
   linkedin = 'https://www.linkedin.com/in/sergiomartinezroman/';
   github = 'https://github.com/Kolman-Freecss';
   itch = 'https://kolman-freecss.itch.io/';
@@ -37,6 +40,18 @@ export class HomeComponent {
   animationGithubState = 'rotated';
   animationLinkedinState = 'rotated';
   animationItchState = 'rotated';
+
+  alienImg = assetUrl('img/Alien.png');
+  thecoreSchoolImg = assetUrl('img/thecoreschool.png');
+  uocImg = assetUrl('img/logo-uoc.png');
+  marianaoImg = assetUrl('img/logo_marianao.png');
+  eLearningImg = assetUrl('img/e-learning.png');
+  imagarImg = assetUrl('img/imagar-logo.jpg');
+  capgeminiImg = assetUrl('img/capgemini-logo.png');
+  carverImg = assetUrl('img/carver-logo.jpg');
+  everisImg = assetUrl('img/everis-logo.jpg');
+  beepImg = assetUrl('img/beep-logo.jpg');
+
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 

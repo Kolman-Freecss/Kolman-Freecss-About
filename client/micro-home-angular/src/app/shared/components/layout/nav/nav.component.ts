@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { GAMES_PATH, HOME_PATH } from '../../../paths';
+import { GAMES_PATH, HOME_PATH, ORIGIN_PATH } from '../../../paths';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { faAnglesLeft, faAnglesRight, faGamepad, faPortrait } from '@fortawesome/free-solid-svg-icons';
 import { CacheService } from '../../../../core/config/cache.service';
 import { Subscription } from 'rxjs';
+import { assetUrl } from '../../../../../single-spa/asset-url';
 
 const pulseAnimation = trigger('pulseAnimation', [
   state('open', style({ transform: 'transform: scale(1)' })),
@@ -31,10 +32,15 @@ const rotateAnimation = trigger('rotateAnimation', [
 })
 export class NavComponent implements OnDestroy, AfterViewInit {
 
-  home = '/' + HOME_PATH;
-  games = '/' + GAMES_PATH;
+  home = '/' + ORIGIN_PATH + '/' + HOME_PATH;
+  games = '/' + ORIGIN_PATH + '/' + GAMES_PATH;
   homeIcon = faPortrait;
   gameIcon = faGamepad;
+
+  logoImageUrl = assetUrl("img/Logo_Krodun.png")
+  esFlagUrl = assetUrl("img/flags/es.png")
+  enFlagUrl = assetUrl("img/flags/en.png")
+  clickSoundUrl = assetUrl('audio/click_003.ogg');
 
   animationState = 'rotated';
 

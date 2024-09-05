@@ -25,9 +25,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MouseFollowerComponent } from './shared/components/mouse-follower/mouse-follower.component';
+import { NgOptimizedImage } from '@angular/common';
+import { assetUrl } from '../single-spa/asset-url';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/Kolman-Freecss-About/assets/locale/', '.json');
+  return new TranslateHttpLoader(http, assetUrl('/locale/'), '.json');
 }
 
 
@@ -55,7 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     MatFormFieldModule, MatSelectModule, FormsModule, ReactiveFormsModule,
-    SanitizeHtmlPipe, MouseFollowerComponent,
+    SanitizeHtmlPipe, MouseFollowerComponent, NgOptimizedImage,
   ],
   providers: [
     provideHttpClient(),

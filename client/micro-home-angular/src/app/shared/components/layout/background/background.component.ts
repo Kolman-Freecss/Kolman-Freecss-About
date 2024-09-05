@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChi
 import { BackgroundType } from '../../../models';
 import { CacheService } from '../../../../core/config/cache.service';
 import { Subscription } from 'rxjs';
+import { assetUrl } from '../../../../../single-spa/asset-url';
 
 @Component({
   selector: 'app-background',
@@ -15,6 +16,9 @@ export class BackgroundComponent implements AfterViewInit, OnDestroy, OnInit {
 
   @ViewChild('video_element', { static: true, read: ElementRef })
   video: ElementRef | undefined;
+
+  backgroundAudio = assetUrl('audio/BackgroundLvl1.wav')
+  gameplayPresentation = assetUrl('video/GameplayPresentacionCompressed.mp4')
 
   audioSub: Subscription;
 

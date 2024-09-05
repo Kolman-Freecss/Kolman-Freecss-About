@@ -8,6 +8,7 @@ import { HighlightGame, Options } from '../../../shared/models';
 import { GamePage } from '../models/game';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { assetUrl } from '../../../../single-spa/asset-url';
 
 const fadeInOut = trigger('fadeInOut', [
   state ('shown', style({ opacity: 1 })),
@@ -34,6 +35,8 @@ export class GameComponent implements OnInit, OnDestroy {
   arrow = faAnglesDown;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
+
+  clickSoundUrl = assetUrl('audio/click_003.ogg');
 
   // Pagination
   options: Options = {
@@ -85,6 +88,17 @@ export class GameComponent implements OnInit, OnDestroy {
           this.loading = false;
         },
       });
+  }
+
+  /**
+   * Clean url if it searchs inside the assets folder
+   * @param url
+   */
+  sanitizeImageUrl(url: string): string {
+    if (url.includes('assets/')) {
+      return assetUrl(url.replace('assets/', ''));
+    }
+    return url
   }
 
   initGetGames(): void {

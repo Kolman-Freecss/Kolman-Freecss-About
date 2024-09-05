@@ -8,5 +8,5 @@
     <a class='navbar-brand' appScrollAnchor="four" (mouseenter)='playHoverSound();'>{{ "header_4" | translate }}</a>
   </nav>
 
-  <audio #hoverSound src='assets/audio/click_003.ogg'></audio>
+  <audio #hoverSound [src]='clickSoundUrl'></audio>
 </div>

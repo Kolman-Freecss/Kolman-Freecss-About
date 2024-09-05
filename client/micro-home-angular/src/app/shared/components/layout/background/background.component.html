@@ -2,7 +2,7 @@
   <audio id='audio_id'
          autoplay
          loop>
-    <source src='assets/audio/BackgroundLvl1.wav' type='audio/mpeg'>
+    <source [src]='backgroundAudio' type='audio/mpeg'>
   </audio>
   <div *ngIf='isCarouselBackground()' id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -20,7 +20,7 @@
            loop
            id='video_id'
           #video_element>
-      <source src='assets/video/GameplayPresentacionCompressed.mp4' type='video/mp4'>
+      <source [src]='gameplayPresentation' type='video/mp4'>
     </video>
   </div>
 </div>

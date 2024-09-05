@@ -15,21 +15,24 @@ import { SanitizeHtmlPipe } from '../../shared/pipes/sanitize-html.pipe';
     HeaderComponent,
     HomeComponent,
   ],
-   imports: [
-      HomeRoutingModule,
-      CommonModule,
-      FontAwesomeModule,
-      SharedModule,
-      TranslateModule,
-      SanitizeHtmlPipe,
-   ],
-    providers: [
-        provideNgxWebstorage(
-          withNgxWebstorageConfig({ separator: ':', caseSensitive: true }),
-          withLocalStorage(),
-          withSessionStorage()
-	    )
-    ]
+  imports: [
+    HomeRoutingModule,
+    CommonModule,
+    FontAwesomeModule,
+    SharedModule,
+    TranslateModule,
+    SanitizeHtmlPipe,
+  ],
+  exports: [
+    HomeComponent,
+  ],
+  providers: [
+    provideNgxWebstorage(
+      withNgxWebstorageConfig({ separator: ':', caseSensitive: true }),
+      withLocalStorage(),
+      withSessionStorage(),
+    ),
+  ],
 })
 export class HomeModule {
 }

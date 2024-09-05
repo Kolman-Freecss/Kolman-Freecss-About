@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { AnimationService } from '../../../services/animation.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import { assetUrl } from '../../../../../single-spa/asset-url';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,8 @@ export class HeaderComponent implements OnInit, OnChanges {
   cacheBoundingRectHome!: any;
   showHeader = true;
   @Input() mouseHoverWrapper = false;
+
+  clickSoundUrl = assetUrl('audio/click_003.ogg');
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 

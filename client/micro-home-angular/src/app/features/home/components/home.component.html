@@ -31,7 +31,7 @@
         </div>
       </section>
       <section class='home-presentation-wrapper' id='home-presentation-id' appScrollSection="two">
-        <h1><img src='assets/img/Alien.png' alt='Sergio' style='width: 5%'> {{ "home_presentation_0" | translate}} <img src='assets/img/Alien.png'
+        <h1><img [src]='alienImg' alt='Sergio' style='width: 5%'> {{ "home_presentation_0" | translate}} <img [src]='alienImg'
                                                                                            alt='Sergio' style='width: 5%'>
         </h1>
         <p>
@@ -91,28 +91,28 @@
         <h1>{{ "home_formation_1" | translate}}</h1>
         <div class='education-card-wrapper'>
           <div class='card' style='width: 18rem;'>
-            <img src='assets/img/thecoreschool.png' class='card-img-top' alt='...'>
+            <img [src]='thecoreSchoolImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>The core school 2023 - En curso</h5>
               <strong>{{ "home_formation_2" | translate}}</strong>
             </div>
           </div>
           <div class='card' style='width: 18rem;'>
-            <img src='assets/img/logo-uoc.png' class='card-img-top' alt='...'>
+            <img [src]='uocImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Universitat Oberta de Catalunya 2018 - 2022</h5>
               <strong>{{ "home_formation_3" | translate}}</strong>
             </div>
           </div>
           <div class='card' style='width: 18rem;'>
-            <img src='assets/img/logo_marianao.png' class='card-img-top' alt='...'>
+            <img [src]='marianaoImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>IES Marianao 2016 - 2018</h5>
               <strong>{{ "home_formation_4" | translate}}</strong>
             </div>
           </div>
           <div class='card' style='width: 18rem;'>
-            <img src='assets/img/e-learning.png' class='card-img-top' alt='...'>
+            <img [src]='eLearningImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>E-learning</h5>
               <strong>{{ "home_formation_5" | translate}}</strong>
@@ -124,7 +124,7 @@
         <h1>{{ "home_experience_1" | translate}}</h1>
         <div class='experience-card-wrapper'>
           <div class='card'>
-            <img src='assets/img/imagar-logo.jpg' class='card-img-top' alt='...'>
+            <img [src]='imagarImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Senior Software Engineer & Analyst</h5>
               <strong>Imagar Solutions Company | NOV 2022 - {{ "home_experience_current" | translate}}</strong>
@@ -137,7 +137,7 @@
             </div>
           </div>
           <div class='card'>
-            <img src='assets/img/capgemini-logo.png' class='card-img-top' alt='...'>
+            <img [src]='capgeminiImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Software Engineer</h5>
               <strong>Capgemini Engineering | {{ "month_january" | translate }} 2022 - NOV 2022</strong>
@@ -149,7 +149,7 @@
             </div>
           </div>
           <div class='card'>
-            <img src='assets/img/carver-logo.jpg' class='card-img-top' alt='...'>
+            <img [src]='carverImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Software Engineer</h5>
               <strong>Carver Advanced Systems S.L | SEPT 2018 - {{ "month_january" | translate }} 2022</strong>
@@ -159,7 +159,7 @@
             </div>
           </div>
           <div class='card'>
-            <img src='assets/img/everis-logo.jpg' class='card-img-top' alt='...'>
+            <img [src]='everisImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Software Developer</h5>
               <strong>Everis | FEB 2018 - JUL 2018</strong>
@@ -167,7 +167,7 @@
             </div>
           </div>
           <div class='card'>
-            <img src='assets/img/beep-logo.jpg' class='card-img-top' alt='...'>
+            <img [src]='beepImg' class='card-img-top' alt='...'>
             <div class='card-body'>
               <h5>Hardware Technician</h5>
               <strong>BEEP Informática | OCT 2018 - MAY 2016</strong>
@@ -179,5 +179,5 @@
       </section>
     </div>
   </div>
-  <audio #hoverSound src='assets/audio/click_003.ogg'></audio>
+  <audio #hoverSound [src]='clickSoundUrl'></audio>
 </div>

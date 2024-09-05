@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { assetUrl } from '../../../../../single-spa/asset-url';
 
 @Component({
   selector: 'app-footer',
@@ -14,6 +15,8 @@ export class FooterComponent  {
   itch = 'https://kolman-freecss.itch.io/';
 
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
+
+  clickSoundUrl = assetUrl('audio/click_003.ogg');
 
   constructor() { }
 

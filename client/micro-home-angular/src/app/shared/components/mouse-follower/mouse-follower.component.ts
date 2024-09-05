@@ -3,6 +3,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { CacheService } from '../../../core/config/cache.service';
 import { Subscription } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
+import { assetUrl } from '../../../../single-spa/asset-url';
 
 const disableAnimation = trigger('disableAnimation', [
   state('true', style({ opacity: 0 })),
@@ -25,6 +26,8 @@ export class MouseFollowerComponent implements OnInit, OnDestroy {
 
   private mouseMoveListener: (() => void) | undefined;
   public isMouseFollowerActive = true;
+
+  mouseImageUrl = assetUrl('img/octagono.png');
 
   audioSub: Subscription;
 

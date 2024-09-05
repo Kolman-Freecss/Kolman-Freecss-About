@@ -2,7 +2,7 @@
   [@disableAnimation]="!isMouseFollowerActive"
   class="follower">
   <div class='follower-inner-img'>
-    <img src='assets/img/octagono.png' alt='No image found!'>
+    <img [src]='mouseImageUrl' alt='No image found!'>
     <svg viewBox="0 0 200 100" class="wave">
       <path id="wave-path" d="M0 50 Q 25 20, 50 50 T 100 50 T 150 50 T 200 50" fill="none" stroke="white" stroke-width="10"/>
     </svg>

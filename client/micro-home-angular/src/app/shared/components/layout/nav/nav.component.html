@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top">
   <div class="container-fluid fa-2x">
-    <img src="assets/img/Logo_Krodun.png" class="card-img-top" alt="...">
+    <img [src]='logoImageUrl' class="card-img-top" alt="...">
     <div id='tabs-wrapper'>
       <div [ngClass]="{'hidden': !isGames()}" class='game-introduction-buttons-wrapper fa-xs'>
         <div class='fa-beat-fade' (mouseenter)='playHoverSound();'>
@@ -25,13 +25,13 @@
     </div>
     <div id='languages-wrapper'>
       <div (click)='changeLanguage("es")' (mouseenter)='playHoverSound()' #flag_es>
-        <img src="assets/img/flags/es.png" class="card-lang-top" alt="...">
+        <img [src]="esFlagUrl" class="card-lang-top" alt="...">
       </div>
       <div (click)='changeLanguage("en")' (mouseenter)='playHoverSound()' #flag_en>
-        <img src="assets/img/flags/en.png" class="card-lang-top" alt="...">
+        <img [src]="enFlagUrl" class="card-lang-top" alt="...">
       </div>
     </div>
   </div>
 
-  <audio #hoverSound src='assets/audio/click_003.ogg'></audio>
+  <audio #hoverSound [src]='clickSoundUrl'></audio>
 </nav>

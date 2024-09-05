@@ -3,6 +3,7 @@ import { BackgroundType } from './shared/models';
 import { NavigationEnd, Router } from '@angular/router';
 import { CacheService } from './core/config/cache.service';
 import { TranslateService } from '@ngx-translate/core';
+import { assetUrl } from '../single-spa/asset-url';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,15 @@ export class AppComponent implements OnInit {
   background: BackgroundType = BackgroundType.Video;
   imagesBackground: string[] = [];
 
+  clickSoundUrl = assetUrl('audio/click_003.ogg');
+
   @ViewChild('hoverSound') hoverSoundRef: ElementRef<HTMLAudioElement> | undefined;
 
   constructor(
     private router: Router,
-    protected cacheService: CacheService,
+    protected cacheService: CacheService
   ) {
+    this.cacheService.setLangSelected(); // First time, set the default language
   }
 
   ngOnInit(): void {

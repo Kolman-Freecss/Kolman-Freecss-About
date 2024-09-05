@@ -148,7 +148,7 @@
               </div>
               <div class='p-4'>
                 <img *ngIf='game.image'
-                  [src]='game.image' alt='No image found!'>
+                  [src]='sanitizeImageUrl(game.image)' alt='No image found!'>
               </div>
             </div>
           </div>
@@ -177,5 +177,5 @@
     </section>
   </div>
 
-  <audio #hoverSound src='assets/audio/click_003.ogg'></audio>
+  <audio #hoverSound [src]='clickSoundUrl'></audio>
 </div>
