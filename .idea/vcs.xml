@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/client/micro-posts-react" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/client/single-spa-wrapper" vcs="Git" />
   </component>
 </project>
