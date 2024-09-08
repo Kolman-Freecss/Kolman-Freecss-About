@@ -31,7 +31,7 @@ jobs:
       - name: Install and build
         run: |
           cd client
-          npm ci
+          npm install
           npm run build
           
       - name: Deploy
