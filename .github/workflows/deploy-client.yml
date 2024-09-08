@@ -1,6 +1,12 @@
 name: deploy-client
 
 on:
+  workflow_dispatch:
+    inputs: 
+        why-deploy:
+            description: 'Why do you want to deploy?'
+            required: true
+            default: 'I want to deploy because...'
   push:
     branches:
       - master
