@@ -33,5 +33,5 @@ jobs:
       - name: Build and deploy
         run: |
           cd client
-          npm run ng deploy --base-href https://kolman-freecss.github.io/Kolman-Freecss-About/
+          npm run ng deploy
         
