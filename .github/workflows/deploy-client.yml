@@ -25,13 +25,15 @@ jobs:
         with:
           node-version: '20'
           
-      - name: Install dependencies
+      - name: Install and build
         run: |
           cd client
-          npm install
+          npm run build
           
-      - name: Build and deploy
-        run: |
-          cd client
-          npm run ng deploy
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          BRANCH: gh-pages
+          FOLDER: client/dist
+          CLEAN: true
         
