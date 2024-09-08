@@ -1,0 +1,31 @@
+name: deploy-client
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'client/**'
+        
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'W
+          
+      - name: Install dependencies
+        run: |
+          cd client
+          npm install
+          
+      - name: Build and deploy
+        run: |
+          cd client
+          npm run ng deploy --base-href https://kolman-freecss.github.io/Kolman-Freecss-About/
+        
