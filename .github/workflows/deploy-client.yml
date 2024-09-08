@@ -12,7 +12,10 @@ on:
       - master
     paths:
       - 'client/**'
-        
+      
+permissions: 
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -28,6 +31,7 @@ jobs:
       - name: Install and build
         run: |
           cd client
+          npm ci
           npm run build
           
       - name: Deploy
