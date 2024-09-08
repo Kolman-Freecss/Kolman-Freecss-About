@@ -1,31 +1,20 @@
-# Client Side - Kolman-Freecss
+# Kolman Freecss
 
-Built with Angular 18
+
 
 ## Used
 
-- Bootstrap 5
-- Firebase
-- Redux with NgRx
-- GitHub Actions
-- Karma
+- 
 
 ## Getting Started
 
 ### Deploy
 
 ```bash
-# This will trigger the deploy script in angular.json
-npm run ng deploy 
-# Script in angular.json [optional]
-npm run ng deploy --base-href https://[username].github.io/[repo]/
 ```
 
 ## Troubleshoting
 
-### Firebase
-
-- https://stackoverflow.com/questions/52891500/http-error-401-while-setting-up-firebase-cloud-functions-for-android-project
 
 ---
 
