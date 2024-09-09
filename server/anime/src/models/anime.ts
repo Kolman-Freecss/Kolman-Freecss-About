@@ -41,6 +41,7 @@ const animeSchema = new mongoose.Schema(
       },
    },
    {
+      collection: 'Anime',
       toJSON: {
          transform(doc, ret) {
             ret.id = ret._id;

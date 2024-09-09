@@ -6,7 +6,15 @@ Built with NodeJs Express
 
 - NodeJs v20
 - Express v5
-- MongoDB
+- MongoDB with MongoDB Atlas
+
+## Installation
+
+- Create a .env file with the next variables:
+
+```bash
+MONGO_URI=your_mongo_uri
+```
 
 ## Getting Started
 

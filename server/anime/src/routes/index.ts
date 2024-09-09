@@ -5,7 +5,8 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/api/animes', async (req: Request, res: Response) => {
-   const animes = await Anime.find({}).populate('anime');
+   const animes = await Anime.find({});
+   console.log(animes);
    res.send(animes);
 });
 
