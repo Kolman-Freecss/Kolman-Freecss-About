@@ -15,6 +15,7 @@
     ]
   },
   "dependencies": {
+    "@kolman-freecss-org/node-micro-common": "^1.0.0",
     "@types/cookie-parser": "^1.4.7",
     "@types/express": "^4.17.21",
     "@types/http-errors": "^2.0.4",
@@ -29,7 +30,8 @@
     "mongoose-update-if-current": "^1.4.0",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "node-nats-streaming": "^0.3.2"
   },
   "devDependencies": {
     "@types/supertest": "^2.0.12",

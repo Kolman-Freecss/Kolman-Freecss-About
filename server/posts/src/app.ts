@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
 import { indexRouter } from './routes/index';
-import { newAnimeRouter } from './routes/new';
+import { newPostsRouter } from './routes/new';
 
 const app = express();
 
