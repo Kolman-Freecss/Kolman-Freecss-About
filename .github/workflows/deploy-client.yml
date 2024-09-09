@@ -47,5 +47,8 @@ jobs:
           git config --global user.email $GITMAIL
           git config --global user.name Kolman-Freecss
           echo "Git configured"
+          echo "Configuring token..."
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Kolman-Freecss/Kolman-Freecss-About.git
+          echo "Token configured"
           npm run ng deploy -- --no-silent
         
