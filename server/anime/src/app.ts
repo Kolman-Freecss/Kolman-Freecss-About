@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
 import { indexRouter } from './routes/index';
+import { newAnimeRouter } from './routes/new';
 
 const app = express();
 
@@ -17,7 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // route handlers
-app.use('/', indexRouter);
+app.use(indexRouter);
+app.use(newAnimeRouter);
+
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {

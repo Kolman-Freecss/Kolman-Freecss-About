@@ -6,6 +6,7 @@ Built with NodeJs Express
 
 - NodeJs v20
 - Express v5
+- MongoDB
 
 ## Getting Started
 
