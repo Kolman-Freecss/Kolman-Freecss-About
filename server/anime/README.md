@@ -10,6 +10,19 @@ Built with NodeJs Express
 
 ## Getting Started
 
+### Local
+
+#### Docker method
+
+- Use .run folder, there is a docker configuration file to run the server.
+
+- Or use the next command:
+
+```bash
+docker build -t micro-anime-image .
+docker run --name micro-anime -p 3000:3000 micro-anime-image
+```
+
 ### Deploy
 
 ```bash
