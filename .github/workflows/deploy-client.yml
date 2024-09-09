@@ -37,5 +37,5 @@ jobs:
       - name: Deploy
         run: |
           cd client
-          npm run ng deploy
+          npm run ng deploy -- --no-silent
         
