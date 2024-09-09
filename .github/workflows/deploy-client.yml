@@ -38,7 +38,8 @@ jobs:
         run: |
           cd client
           echo "Configuring git..."
-          git config --global user.email Kolman-Freecss@users.noreply.github.com
+          echo "Deploying in mail ${{ secrets.GITMAIL }}"
+          git config --global user.email ${{ secrets.GITMAIL }}
           git config --global user.name Kolman-Freecss
           echo "Git configured"
           npm run ng deploy -- --no-silent
