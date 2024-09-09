@@ -1,4 +1,4 @@
-# Server Side Post - Kolman-Freecss - NodeJs 
+# Server Side Posts - Kolman-Freecss - NodeJs 
 
 Built with NodeJs Express
 
@@ -27,8 +27,8 @@ MONGO_URI=your_mongo_uri
 - Or use the next command:
 
 ```bash
-docker build -t micro-anime-image .
-docker run --name micro-anime -p 3000:3000 micro-anime-image
+docker build -t micro-posts-image .
+docker run --name micro-posts -p 3000:3000 micro-posts-image
 ```
 
 ### Deploy
