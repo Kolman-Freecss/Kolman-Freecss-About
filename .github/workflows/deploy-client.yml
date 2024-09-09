@@ -35,9 +35,7 @@ jobs:
           npm run build
           
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          BRANCH: gh-pages
-          FOLDER: client/dist
-          CLEAN: true
+        run: |
+          cd client
+          npm run ng deploy
         
