@@ -49,6 +49,10 @@ How to run the project:
 
 - NATS
 
+### CI/CD
+
+- Check the section below `Infrastructure`.
+
 ## Architecture
 
 - Microservices.
@@ -63,6 +67,7 @@ Check the `server` folder.
 - Docker-compose
 - Kubernetes
 - Skaffold
+- Terraform
 - AWS
 - Github Actions
 

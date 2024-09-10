@@ -1,3 +1,5 @@
+## Used for NodeJs microservices communication. 
+
 - Execute the docker-compose file to start the NATS server.
 
 This will start the NATS server its defaults ports.
