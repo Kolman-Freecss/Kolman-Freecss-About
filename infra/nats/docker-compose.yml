@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  nats-streaming:
+    image: nats-streaming:latest
+    container_name: nats-streaming
+    ports:
+      - "4223:4222"  # Cambia el puerto de clúster de NATS Streaming a otro (4223 es solo un ejemplo)
+      - "8223:8222"
+      - "6223:6222"  # Cambia este puerto de clúster
+    command: >
+      -cid kolmanfreecss-nats-cluster
+    depends_on:
+      - nats
+
+  nats:
+    image: nats:latest
+    container_name: nats
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+      - "6222:6222"  # El puerto original que está usando el servidor NATS
