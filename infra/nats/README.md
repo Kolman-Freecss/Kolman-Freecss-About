@@ -1,5 +1,4 @@
-- Execute the following command to start up the NATS server:
-```bash
-docker build -t nats-server .
-docker run -d --name nats-server -p 4222:4222 nats-server
-```
+- Execute the docker-compose file to start the NATS server.
+
+This will start the NATS server its defaults ports.
+- Also you'll have the clusterID preconfigured in the command line.
