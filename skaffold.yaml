@@ -1,0 +1,25 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/.k8s/*
+
+build:
+  local:
+    push: false
+  artifacts:
+    - image: kolman-freecss/nats
+      context: infra/nats
+      docker:
+          dockerfile: Dockerfile
+
+    - image: kolman-freecss/anime
+      context: server/anime
+      docker:
+        dockerfile: Dockerfile
+
+    - image: kolman-freecss/posts
+      context: server/posts
+      docker:
+          dockerfile: Dockerfile
