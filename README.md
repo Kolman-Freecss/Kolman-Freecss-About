@@ -2,6 +2,13 @@
 
 As **principal purpose** is to deploy my web application as a showcase. 
 
+Check the related repositories:
+
+- #### Server side: [kolman-freecss-server](https://github.com/Kolman-Freecss/Kolman-Freecss-Server)
+- #### Another client built with ReactJs: [kolman-freecss-stuff](https://github.com/Kolman-Freecss/Kolman-Freecss-Stuff)
+
+___
+
 **Kolman Freecss** is my alias. I'm a software engineer who loves to code and learn new things. 
 
 This repository is a personal project where I'm building different stuff as showcase.
@@ -21,11 +28,6 @@ How to run the project:
 1. Clone the repository.
 2. Run `npm install` in the next folders:
    - `client`
-   - `server`
-     - `anime`
-     - `post`
-     - `node-micro-common`
-3. Run `docker-compose up` in the `infra` folder. (This will start the NATS streaming server).
 
 ## Tech stacks
 
@@ -34,32 +36,9 @@ How to run the project:
 - Angular
 - Karma
 
-#### Back:
-
-- Node.js
-- Express
-- Jest
-
-#### DDBB:
-
-- Firebase
-- MongoDB
-
-#### Streaming server:
-
-- NATS
-
 ### CI/CD
 
 - Check the section below `Infrastructure`.
-
-## Architecture
-
-- Microservices.
-- Hexagonal. 
-- Event-driven.
-
-Check the `server` folder.
 
 ## Infrastructure
 
